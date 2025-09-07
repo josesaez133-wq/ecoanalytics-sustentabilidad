@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoAnalytics | Agente IA de Cumplimiento Normativo Chile</title>
+    <title>EcoAnalytics | Plataforma IA de Cumplimiento ESG y Sustentabilidad - Chile</title>
+    <meta name="description" content="Plataforma líder en análisis de cumplimiento normativo ESG con IA avanzada. Más de 80 normativas integradas para empresas chilenas.">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -19,13 +23,20 @@
                     </div>
                 </div>
             </div>
-            <h3>Analizando documentos con IA...</h3>
+            <h3>Analizando documentos con IA avanzada...</h3>
             <p id="processing-text">Extrayendo datos y verificando cumplimiento normativo...</p>
             <div class="processing-steps">
-                <div class="step-item active" id="step-1">📄 Extrayendo datos</div>
-                <div class="step-item" id="step-2">⚖️ Verificando DS y normativas</div>
-                <div class="step-item" id="step-3">📊 Calculando scores ESG</div>
-                <div class="step-item" id="step-4">💡 Generando plan de acción</div>
+                <div class="step-item active" id="step-1">📄 Extrayendo y clasificando datos</div>
+                <div class="step-item" id="step-2">⚖️ Verificando 80+ normativas</div>
+                <div class="step-item" id="step-3">📊 Calculando scores ESG avanzados</div>
+                <div class="step-item" id="step-4">💡 Generando plan de acción estratégico</div>
+                <div class="step-item" id="step-5">🎯 Priorizando recomendaciones</div>
+            </div>
+            <div class="processing-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-percentage" id="progress-percentage">0%</div>
             </div>
         </div>
     </div>
@@ -38,12 +49,25 @@
                     <div class="logo-icon">🌿</div>
                     <div class="logo-text">
                         <h1>EcoAnalytics</h1>
-                        <span>Agente IA Cumplimiento Chile</span>
+                        <span>Plataforma IA ESG Chile</span>
                     </div>
                 </div>
+                <nav class="header-nav">
+                    <ul class="nav-menu">
+                        <li><a href="#normativas" class="nav-link">Normativas</a></li>
+                        <li><a href="#analisis" class="nav-link">Análisis</a></li>
+                        <li><a href="#pricing" class="nav-link">Planes</a></li>
+                        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    </ul>
+                </nav>
                 <div class="header-actions">
                     <button class="btn btn--outline" id="demo-btn">Ver Demo</button>
                     <button class="btn btn--primary" id="contact-btn">Solicitar Asesoría</button>
+                </div>
+                <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>
@@ -54,13 +78,18 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-icon">🏆</span>
+                        <span>Plataforma #1 en Cumplimiento ESG Chile</span>
+                    </div>
                     <h2 class="hero-title">
-                        Cumple <span class="highlight">Todas las Normativas</span> 
-                        de Chile en Minutos
+                        Domina el <span class="highlight">Cumplimiento ESG</span> 
+                        con IA de Vanguardia
                     </h2>
                     <p class="hero-subtitle">
-                        IA especializada en DS90, NCh1333, SEIA, ISO y todas las regulaciones chilenas. 
-                        Análisis documental instantáneo con plan de cumplimiento accionable.
+                        La única plataforma que integra 80+ normativas chilenas e internacionales. 
+                        Análisis documental instantáneo, dashboard ejecutivo en tiempo real y 
+                        consultoría especializada para liderar en sustentabilidad.
                     </p>
                     <div class="hero-stats">
                         <div class="stat">
@@ -68,25 +97,70 @@
                             <div class="stat-label">Análisis Completo</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Normas Integradas</div>
+                            <div class="stat-number">80+</div>
+                            <div class="stat-label">Normativas Integradas</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">95%</div>
+                            <div class="stat-number">97%</div>
                             <div class="stat-label">Precisión IA</div>
                         </div>
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Empresas Confían</div>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn--primary btn--lg" id="start-analysis-btn">
+                            🚀 Iniciar Análisis Gratuito
+                        </button>
+                        <button class="btn btn--outline-white btn--lg" id="schedule-demo-btn">
+                            📅 Agendar Demo Personalizada
+                        </button>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="upload-zone" id="upload-zone">
                         <div class="upload-content">
                             <div class="upload-icon">📄</div>
-                            <h3>Sube tus documentos aquí</h3>
-                            <p>RCA, permisos, certificados, reportes - Análisis normativo instantáneo</p>
-                            <input type="file" id="file-input" multiple accept=".pdf,.xlsx,.docx">
+                            <h3>Arrastra tus documentos aquí</h3>
+                            <p>Reportes ESG, RCA, permisos, certificados, políticas<br>
+                            Análisis automático de 80+ normativas en segundos</p>
+                            <input type="file" id="file-input" multiple accept=".pdf,.xlsx,.docx,.pptx,.csv">
                             <button class="upload-btn" onclick="document.getElementById('file-input').click()">
                                 Seleccionar Archivos
                             </button>
+                            <div class="upload-formats">
+                                <span>PDF</span>
+                                <span>Excel</span>
+                                <span>Word</span>
+                                <span>PowerPoint</span>
+                                <span>CSV</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Preview Dashboard -->
+                    <div class="dashboard-preview">
+                        <div class="preview-header">
+                            <div class="preview-title">Dashboard Ejecutivo</div>
+                            <div class="preview-status live">● EN VIVO</div>
+                        </div>
+                        <div class="preview-metrics">
+                            <div class="metric-card">
+                                <div class="metric-value">82%</div>
+                                <div class="metric-label">Score ESG</div>
+                                <div class="metric-trend positive">+5.2%</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">3</div>
+                                <div class="metric-label">Críticos</div>
+                                <div class="metric-trend negative">-2</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">15</div>
+                                <div class="metric-label">En Progreso</div>
+                                <div class="metric-trend positive">+8</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -94,102 +168,318 @@
         </div>
     </section>
 
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-content">
+                <div class="trust-label">Empresas líderes confían en EcoAnalytics</div>
+                <div class="trust-logos">
+                    <div class="trust-logo">🏭 ManufacturaPlus</div>
+                    <div class="trust-logo">⚡ EnergíaVerde</div>
+                    <div class="trust-logo">🏗️ ConstrucciónSA</div>
+                    <div class="trust-logo">🚛 LogísticaPro</div>
+                    <div class="trust-logo">🏪 RetailCorp</div>
+                    <div class="trust-logo">💼 FinanzasSA</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Normativas Coverage -->
-    <section class="normativas-coverage">
+    <section class="normativas-coverage" id="normativas">
         <div class="container">
             <div class="section-header">
-                <h2>Cobertura Normativa Completa</h2>
-                <p>Verificación automática de cumplimiento con todas las regulaciones chilenas</p>
+                <div class="section-badge">
+                    <span class="badge-icon">⚖️</span>
+                    <span>Cobertura Total</span>
+                </div>
+                <h2>80+ Normativas Integradas</h2>
+                <p>La cobertura más completa de regulaciones chilenas e internacionales para sustentabilidad empresarial</p>
+                
+                <!-- Filters -->
+                <div class="normativas-filters">
+                    <button class="filter-btn active" data-filter="all">Todas (80+)</button>
+                    <button class="filter-btn" data-filter="chile">Chile (45+)</button>
+                    <button class="filter-btn" data-filter="iso">ISO (25+)</button>
+                    <button class="filter-btn" data-filter="internacional">Internacional (35+)</button>
+                </div>
             </div>
             
             <div class="normativas-grid">
-                <div class="norma-card environmental">
+                <!-- Gestión de Aguas -->
+                <div class="norma-card environmental" data-category="chile">
                     <div class="norma-header">
                         <div class="norma-icon">💧</div>
                         <h3>Gestión de Aguas</h3>
+                        <div class="norma-count">12 normativas</div>
                     </div>
                     <ul class="norma-list">
-                        <li>DS 90/2000 - Residuos Líquidos</li>
-                        <li>NCh 1333 - Calidad Aguas Riego</li>
-                        <li>DGA - Derechos de Agua</li>
-                        <li>Código de Aguas</li>
+                        <li><span class="norma-code">DS 90/2000</span> - Residuos Líquidos</li>
+                        <li><span class="norma-code">NCh 1333</span> - Calidad Aguas Riego</li>
+                        <li><span class="norma-code">DGA</span> - Derechos de Agua</li>
+                        <li><span class="norma-code">Código Aguas</span> - Marco Legal Hídrico</li>
+                        <li><span class="norma-code">DS 609/1998</span> - Norma Secundaria</li>
+                        <li><span class="norma-code">NCh 1620</span> - Agua Potable</li>
+                        <li><span class="norma-code">DS 46/2003</span> - Manejo Cuencas</li>
+                        <li><span class="norma-code">ISO 14046</span> - Huella Hídrica</li>
+                        <li><span class="norma-code">Res. SMA</span> - Fiscalización Hídrica</li>
+                        <li><span class="norma-code">NCh 2313</span> - Reutilización Aguas</li>
+                        <li><span class="norma-code">DS 594</span> - Agua Uso Industrial</li>
+                        <li><span class="norma-code">Ley 21.075</span> - Servicios Sanitarios</li>
                     </ul>
+                    <div class="norma-status">
+                        <span class="status-indicator compliant"></span>
+                        <span class="status-text">85% Cumplimiento</span>
+                    </div>
                 </div>
 
-                <div class="norma-card hazardous">
+                <!-- Sustancias Peligrosas -->
+                <div class="norma-card hazardous" data-category="chile">
                     <div class="norma-header">
                         <div class="norma-icon">⚠️</div>
                         <h3>Sustancias Peligrosas</h3>
+                        <div class="norma-count">15 normativas</div>
                     </div>
                     <ul class="norma-list">
-                        <li>DS 148/2003 - Residuos Peligrosos</li>
-                        <li>DS 46/2002 - Almacenamiento</li>
-                        <li>DS 78/2009 - Transporte</li>
-                        <li>MINSAL - Autorizaciones</li>
+                        <li><span class="norma-code">DS 148/2003</span> - Residuos Peligrosos</li>
+                        <li><span class="norma-code">DS 46/2002</span> - Almacenamiento</li>
+                        <li><span class="norma-code">DS 78/2009</span> - Transporte</li>
+                        <li><span class="norma-code">DS 43/2015</span> - Registro Emisiones</li>
+                        <li><span class="norma-code">MINSAL</span> - Autorizaciones Sanitarias</li>
+                        <li><span class="norma-code">NCh 382</span> - Sustancias Peligrosas</li>
+                        <li><span class="norma-code">NCh 2120/1</span> - Almacenamiento Líquidos</li>
+                        <li><span class="norma-code">NCh 2190</span> - Transporte Terrestre</li>
+                        <li><span class="norma-code">DS 133/2005</span> - Reglamento Explosivos</li>
+                        <li><span class="norma-code">Ley 16.744</span> - Accidentes del Trabajo</li>
+                        <li><span class="norma-code">ISO 14040</span> - Análisis Ciclo Vida</li>
+                        <li><span class="norma-code">ISO 14044</span> - ACV Principios</li>
+                        <li><span class="norma-code">GHS</span> - Sistema Global Armonizado</li>
+                        <li><span class="norma-code">RETC</span> - Registro Emisiones</li>
+                        <li><span class="norma-code">Plan PREPARE</span> - Prevención Accidentes</li>
                     </ul>
+                    <div class="norma-status">
+                        <span class="status-indicator critical"></span>
+                        <span class="status-text">45% Cumplimiento</span>
+                    </div>
                 </div>
 
-                <div class="norma-card atmospheric">
+                <!-- Emisiones Atmosféricas -->
+                <div class="norma-card atmospheric" data-category="chile">
                     <div class="norma-header">
                         <div class="norma-icon">🌬️</div>
                         <h3>Emisiones Atmosféricas</h3>
+                        <div class="norma-count">18 normativas</div>
                     </div>
                     <ul class="norma-list">
-                        <li>DS 609/1998 - Fuentes Fijas</li>
-                        <li>DS 28/2013 - Ruido</li>
-                        <li>DS 113/2002 - Termoeléctricas</li>
-                        <li>Plan Descontaminación</li>
+                        <li><span class="norma-code">DS 609/1998</span> - Fuentes Fijas</li>
+                        <li><span class="norma-code">DS 28/2013</span> - Ruido</li>
+                        <li><span class="norma-code">DS 113/2002</span> - Termoeléctricas</li>
+                        <li><span class="norma-code">DS 138/2005</span> - Material Particulado</li>
+                        <li><span class="norma-code">DS 4/2009</span> - Dióxido Azufre</li>
+                        <li><span class="norma-code">Plan Descontaminación</span> - Regional</li>
+                        <li><span class="norma-code">DS 144/1961</span> - Prevención Atmosférica</li>
+                        <li><span class="norma-code">Res. MMA</span> - Monitoreo Continuo</li>
+                        <li><span class="norma-code">NCh 2899</span> - Calidad del Aire</li>
+                        <li><span class="norma-code">DS 59/1998</span> - Norma Primaria PM10</li>
+                        <li><span class="norma-code">DS 12/2011</span> - Norma Primaria PM2.5</li>
+                        <li><span class="norma-code">ISO 14064-1</span> - GEI Organizacional</li>
+                        <li><span class="norma-code">ISO 14064-2</span> - GEI Proyectos</li>
+                        <li><span class="norma-code">ISO 14065</span> - Verificación GEI</li>
+                        <li><span class="norma-code">ISO 14067</span> - Huella Carbono</li>
+                        <li><span class="norma-code">Protocolo GEI</span> - Inventarios</li>
+                        <li><span class="norma-code">CDM</span> - Mecanismos Desarrollo</li>
+                        <li><span class="norma-code">NAMA</span> - Acciones de Mitigación</li>
                     </ul>
+                    <div class="norma-status">
+                        <span class="status-indicator warning"></span>
+                        <span class="status-text">72% Cumplimiento</span>
+                    </div>
                 </div>
 
-                <div class="norma-card occupational">
+                <!-- Seguridad Ocupacional -->
+                <div class="norma-card occupational" data-category="chile">
                     <div class="norma-header">
                         <div class="norma-icon">🛡️</div>
                         <h3>Seguridad Ocupacional</h3>
+                        <div class="norma-count">14 normativas</div>
                     </div>
                     <ul class="norma-list">
-                        <li>DS 594/1999 - Condiciones Trabajo</li>
-                        <li>DS 132 - Seguridad Minera</li>
-                        <li>Código del Trabajo</li>
-                        <li>ISP - Vigilancia Salud</li>
+                        <li><span class="norma-code">DS 594/1999</span> - Condiciones Trabajo</li>
+                        <li><span class="norma-code">DS 132</span> - Seguridad Minera</li>
+                        <li><span class="norma-code">Código Trabajo</span> - Marco Laboral</li>
+                        <li><span class="norma-code">Ley 16.744</span> - Seguridad Social</li>
+                        <li><span class="norma-code">DS 40/1969</span> - Prevención Riesgos</li>
+                        <li><span class="norma-code">DS 101/1968</span> - Reglamento CPHS</li>
+                        <li><span class="norma-code">ISP</span> - Vigilancia Salud</li>
+                        <li><span class="norma-code">SUSESO</span> - Superintendencia</li>
+                        <li><span class="norma-code">NCh 18000</span> - SSO Chilena</li>
+                        <li><span class="norma-code">ISO 45001</span> - Seguridad Ocupacional</li>
+                        <li><span class="norma-code">OHSAS 18001</span> - Sistema Gestión SSO</li>
+                        <li><span class="norma-code">ILO-OSH</span> - Directrices OIT</li>
+                        <li><span class="norma-code">DS 95/1995</span> - Ruido Ocupacional</li>
+                        <li><span class="norma-code">DS 298/1994</span> - Agentes Químicos</li>
                     </ul>
+                    <div class="norma-status">
+                        <span class="status-indicator compliant"></span>
+                        <span class="status-text">88% Cumplimiento</span>
+                    </div>
                 </div>
 
-                <div class="norma-card environmental-impact">
+                <!-- Evaluación Ambiental -->
+                <div class="norma-card environmental-impact" data-category="chile">
                     <div class="norma-header">
                         <div class="norma-icon">🌍</div>
                         <h3>Evaluación Ambiental</h3>
+                        <div class="norma-count">16 normativas</div>
                     </div>
                     <ul class="norma-list">
-                        <li>Ley 19.300 - Medio Ambiente</li>
-                        <li>DS 40/2012 - SEIA</li>
-                        <li>SMA - Fiscalización</li>
-                        <li>SEA - Permisos Ambientales</li>
+                        <li><span class="norma-code">Ley 19.300</span> - Bases Medio Ambiente</li>
+                        <li><span class="norma-code">DS 40/2012</span> - Reglamento SEIA</li>
+                        <li><span class="norma-code">SMA</span> - Superintendencia Ambiente</li>
+                        <li><span class="norma-code">SEA</span> - Servicio Evaluación</li>
+                        <li><span class="norma-code">RCA</span> - Resolución Calificación</li>
+                        <li><span class="norma-code">DIA/EIA</span> - Estudios Impacto</li>
+                        <li><span class="norma-code">PAS</span> - Permisos Ambientales</li>
+                        <li><span class="norma-code">Plan Seguimiento</span> - Monitoreo</li>
+                        <li><span class="norma-code">DS 95/2001</span> - SNASPE</li>
+                        <li><span class="norma-code">Ley 20.417</span> - Institucionalidad</li>
+                        <li><span class="norma-code">ISO 14001</span> - Gestión Ambiental</li>
+                        <li><span class="norma-code">ISO 14004</span> - Guía SGA</li>
+                        <li><span class="norma-code">ISO 14015</span> - Evaluaciones Ambientales</li>
+                        <li><span class="norma-code">EMAS</span> - Eco-Management</li>
+                        <li><span class="norma-code">Convenio CBD</span> - Biodiversidad</li>
+                        <li><span class="norma-code">Protocolo Nagoya</span> - Recursos Genéticos</li>
                     </ul>
+                    <div class="norma-status">
+                        <span class="status-indicator warning"></span>
+                        <span class="status-text">74% Cumplimiento</span>
+                    </div>
                 </div>
 
-                <div class="norma-card international">
+                <!-- Gestión Energética -->
+                <div class="norma-card energy" data-category="iso">
                     <div class="norma-header">
-                        <div class="norma-icon">🏆</div>
-                        <h3>Estándares Internacionales</h3>
+                        <div class="norma-icon">⚡</div>
+                        <h3>Gestión Energética</h3>
+                        <div class="norma-count">11 normativas</div>
                     </div>
                     <ul class="norma-list">
-                        <li>ISO 14001 - Gestión Ambiental</li>
-                        <li>ISO 45001 - Seguridad Ocupacional</li>
-                        <li>ISO 26000 - Responsabilidad Social</li>
-                        <li>GRI Standards - Reportes</li>
+                        <li><span class="norma-code">ISO 50001</span> - Gestión Energética</li>
+                        <li><span class="norma-code">ISO 50002</span> - Auditorías Energéticas</li>
+                        <li><span class="norma-code">ISO 50003</span> - Auditoría SistEnergético</li>
+                        <li><span class="norma-code">ISO 50004</span> - Guía Implementación</li>
+                        <li><span class="norma-code">ISO 50006</span> - Líneas Base Energéticas</li>
+                        <li><span class="norma-code">Ley 20.571</span> - Generación Distribuida</li>
+                        <li><span class="norma-code">CNE</span> - Comisión Nacional Energía</li>
+                        <li><span class="norma-code">Ley 21.505</span> - Eficiencia Energética</li>
+                        <li><span class="norma-code">PEERS</span> - Planificación Energética</li>
+                        <li><span class="norma-code">Net Billing</span> - Inyección Excedentes</li>
+                        <li><span class="norma-code">RGR</span> - Reglamento Generación</li>
                     </ul>
+                    <div class="norma-status">
+                        <span class="status-indicator warning"></span>
+                        <span class="status-text">62% Cumplimiento</span>
+                    </div>
+                </div>
+
+                <!-- Responsabilidad Social -->
+                <div class="norma-card social" data-category="iso">
+                    <div class="norma-header">
+                        <div class="norma-icon">🤝</div>
+                        <h3>Responsabilidad Social</h3>
+                        <div class="norma-count">13 normativas</div>
+                    </div>
+                    <ul class="norma-list">
+                        <li><span class="norma-code">ISO 26000</span> - Responsabilidad Social</li>
+                        <li><span class="norma-code">ISO 37001</span> - Sistema Antisoborno</li>
+                        <li><span class="norma-code">ISO 37101</span> - Desarrollo Sostenible</li>
+                        <li><span class="norma-code">ISO 20400</span> - Compras Sostenibles</li>
+                        <li><span class="norma-code">SA 8000</span> - Responsabilidad Social</li>
+                        <li><span class="norma-code">AA 1000</span> - AccountAbility</li>
+                        <li><span class="norma-code">OIT</span> - Convenios Laborales</li>
+                        <li><span class="norma-code">UN Global Compact</span> - Pacto Mundial</li>
+                        <li><span class="norma-code">ISO 37301</span> - Compliance</li>
+                        <li><span class="norma-code">ISO 31000</span> - Gestión Riesgos</li>
+                        <li><span class="norma-code">COSO</span> - Control Interno</li>
+                        <li><span class="norma-code">FCPA</span> - Anti-corrupción</li>
+                        <li><span class="norma-code">Ley 20.393</span> - Responsabilidad Penal</li>
+                    </ul>
+                    <div class="norma-status">
+                        <span class="status-indicator info"></span>
+                        <span class="status-text">76% Cumplimiento</span>
+                    </div>
+                </div>
+
+                <!-- Reportes ESG -->
+                <div class="norma-card reporting" data-category="internacional">
+                    <div class="norma-header">
+                        <div class="norma-icon">📊</div>
+                        <h3>Reportes ESG</h3>
+                        <div class="norma-count">16 normativas</div>
+                    </div>
+                    <ul class="norma-list">
+                        <li><span class="norma-code">GRI Standards</span> - Reportes Sostenibilidad</li>
+                        <li><span class="norma-code">SASB Standards</span> - Sectoriales</li>
+                        <li><span class="norma-code">TCFD</span> - Riesgos Climáticos</li>
+                        <li><span class="norma-code">CDSB</span> - Climate Disclosure</li>
+                        <li><span class="norma-code">IIRC</span> - Reporte Integrado</li>
+                        <li><span class="norma-code">CDP</span> - Carbon Disclosure</li>
+                        <li><span class="norma-code">DJSI</span> - Dow Jones Sustainability</li>
+                        <li><span class="norma-code">FTSE4Good</span> - Índice ESG</li>
+                        <li><span class="norma-code">MSCI ESG</span> - Rating</li>
+                        <li><span class="norma-code">ISO 14021</span> - Etiquetas Ambientales</li>
+                        <li><span class="norma-code">ISO 14025</span> - Declaraciones Tipo III</li>
+                        <li><span class="norma-code">ISO 20121</span> - Eventos Sostenibles</li>
+                        <li><span class="norma-code">B Corp</span> - Certificación Beneficio</li>
+                        <li><span class="norma-code">CSRD</span> - Directiva UE</li>
+                        <li><span class="norma-code">SFDR</span> - Finanzas Sostenibles</li>
+                        <li><span class="norma-code">Taxonomía UE</span> - Actividades Sostenibles</li>
+                    </ul>
+                    <div class="norma-status">
+                        <span class="status-indicator info"></span>
+                        <span class="status-text">68% Cumplimiento</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Normativas Summary -->
+            <div class="normativas-summary">
+                <div class="summary-stats">
+                    <div class="summary-stat">
+                        <div class="stat-number">82</div>
+                        <div class="stat-label">Total Normativas</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="stat-number">47</div>
+                        <div class="stat-label">Regulaciones Chile</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="stat-number">25</div>
+                        <div class="stat-label">Estándares ISO</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Frameworks Internacionales</div>
+                    </div>
+                </div>
+                <div class="summary-actions">
+                    <button class="btn btn--primary" id="view-all-norms">Ver Listado Completo</button>
+                    <button class="btn btn--outline" id="download-checklist">Descargar Checklist</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Case Study Section -->
-    <section class="case-study">
+    <section class="case-study" id="analisis">
         <div class="container">
             <div class="section-header">
-                <h2>Ejemplo: Empresa Manufacturera Genérica</h2>
-                <p>Diagnóstico completo de cumplimiento normativo en 18 segundos</p>
+                <div class="section-badge">
+                    <span class="badge-icon">📊</span>
+                    <span>Análisis en Vivo</span>
+                </div>
+                <h2>Dashboard Ejecutivo: Empresa Demo</h2>
+                <p>Análisis completo de cumplimiento normativo procesado en tiempo real</p>
             </div>
             
             <div class="case-content">
@@ -198,83 +488,221 @@
                         <div class="case-header">
                             <div class="company-logo">🏭</div>
                             <div class="company-info">
-                                <h3>Industria Manufacturera S.A.</h3>
-                                <p>Sector Manufactura • 450 páginas analizadas</p>
-                                <p>Incluye: RCA, permisos, certificados, reportes</p>
+                                <h3>Industria Manufacturera Demo S.A.</h3>
+                                <div class="company-details">
+                                    <div class="detail">
+                                        <span class="detail-label">Sector:</span>
+                                        <span class="detail-value">Manufactura Industrial</span>
+                                    </div>
+                                    <div class="detail">
+                                        <span class="detail-label">Documentos:</span>
+                                        <span class="detail-value">847 páginas analizadas</span>
+                                    </div>
+                                    <div class="detail">
+                                        <span class="detail-label">Normativas:</span>
+                                        <span class="detail-value">82 verificadas automáticamente</span>
+                                    </div>
+                                    <div class="detail">
+                                        <span class="detail-label">Última actualización:</span>
+                                        <span class="detail-value" id="last-update">Hace 2 minutos</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="company-actions">
+                                <button class="btn btn--sm btn--outline" id="refresh-analysis">🔄 Actualizar</button>
+                                <button class="btn btn--sm btn--primary" id="export-report">📄 Exportar</button>
                             </div>
                         </div>
                         <div class="analysis-time">
-                            <span class="time-badge">⚡ Análisis completado en 18 segundos</span>
+                            <span class="time-badge success">⚡ Análisis completado en 18 segundos</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="results-dashboard">
+                    <!-- Main Score -->
                     <div class="score-card main-score">
                         <div class="score-header">
-                            <h3>Cumplimiento General</h3>
-                            <div class="trend positive">+8.5%</div>
-                        </div>
-                        <div class="score-circle">
-                            <div class="circle-progress" data-percentage="78">
-                                <span class="score-number">78</span>
-                                <span class="score-total">%</span>
+                            <h3>Score ESG General</h3>
+                            <div class="score-actions">
+                                <div class="trend positive">+8.5% vs anterior</div>
+                                <button class="score-info" title="Metodología de cálculo">ℹ️</button>
                             </div>
                         </div>
-                        <p class="score-description">Score de Cumplimiento Normativo</p>
+                        <div class="score-circle-container">
+                            <div class="score-circle">
+                                <div class="circle-progress" data-percentage="78">
+                                    <span class="score-number">78</span>
+                                    <span class="score-total">%</span>
+                                </div>
+                            </div>
+                            <div class="score-benchmark">
+                                <div class="benchmark-item">
+                                    <span class="benchmark-label">Promedio Sector</span>
+                                    <span class="benchmark-value">65%</span>
+                                </div>
+                                <div class="benchmark-item">
+                                    <span class="benchmark-label">Top Quartile</span>
+                                    <span class="benchmark-value">85%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="score-description">Score compuesto basado en 82 normativas verificadas</p>
                     </div>
 
+                    <!-- Detailed Scores -->
                     <div class="scores-breakdown">
+                        <div class="breakdown-header">
+                            <h4>Análisis por Área Normativa</h4>
+                            <div class="breakdown-controls">
+                                <button class="control-btn" id="sort-scores">📊</button>
+                                <button class="control-btn" id="filter-critical">⚠️</button>
+                            </div>
+                        </div>
+
                         <div class="score-item environmental">
                             <div class="score-label">
                                 <span class="icon">💧</span>
-                                DS90 - Residuos Líquidos
+                                <div class="label-content">
+                                    <span class="label-title">DS90/2000 - Residuos Líquidos</span>
+                                    <span class="label-subtitle">12 requisitos evaluados</span>
+                                </div>
                             </div>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 85%"></div>
+                            <div class="score-progress">
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="score-value">85%</div>
                             </div>
-                            <div class="score-value">85%</div>
+                            <div class="score-status">
+                                <span class="status-badge compliant">Cumple</span>
+                            </div>
                         </div>
+
                         <div class="score-item warning">
                             <div class="score-label">
                                 <span class="icon">🌾</span>
-                                NCh1333 - Aguas Riego
+                                <div class="label-content">
+                                    <span class="label-title">NCh1333 - Calidad Aguas Riego</span>
+                                    <span class="label-subtitle">8 parámetros evaluados</span>
+                                </div>
                             </div>
-                            <div class="score-bar">
-                                <div class="score-fill warning" style="width: 65%"></div>
+                            <div class="score-progress">
+                                <div class="score-bar">
+                                    <div class="score-fill warning" style="width: 65%"></div>
+                                </div>
+                                <div class="score-value">65%</div>
                             </div>
-                            <div class="score-value">65%</div>
+                            <div class="score-status">
+                                <span class="status-badge warning">Atención</span>
+                            </div>
                         </div>
+
                         <div class="score-item critical">
                             <div class="score-label">
                                 <span class="icon">⚠️</span>
-                                DS148 - Residuos Peligrosos
+                                <div class="label-content">
+                                    <span class="label-title">DS148/2003 - Residuos Peligrosos</span>
+                                    <span class="label-subtitle">15 obligaciones evaluadas</span>
+                                </div>
                             </div>
-                            <div class="score-bar">
-                                <div class="score-fill critical" style="width: 45%"></div>
+                            <div class="score-progress">
+                                <div class="score-bar">
+                                    <div class="score-fill critical" style="width: 45%"></div>
+                                </div>
+                                <div class="score-value">45%</div>
                             </div>
-                            <div class="score-value">45%</div>
+                            <div class="score-status">
+                                <span class="status-badge critical">Crítico</span>
+                            </div>
                         </div>
+
                         <div class="score-item good">
                             <div class="score-label">
                                 <span class="icon">🛡️</span>
-                                DS594 - Seguridad Laboral
+                                <div class="label-content">
+                                    <span class="label-title">ISO 45001 - Seguridad Ocupacional</span>
+                                    <span class="label-subtitle">25 cláusulas evaluadas</span>
+                                </div>
                             </div>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 88%"></div>
+                            <div class="score-progress">
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 88%"></div>
+                                </div>
+                                <div class="score-value">88%</div>
                             </div>
-                            <div class="score-value">88%</div>
+                            <div class="score-status">
+                                <span class="status-badge compliant">Excelente</span>
+                            </div>
                         </div>
+
                         <div class="score-item warning">
                             <div class="score-label">
-                                <span class="icon">🌍</span>
-                                SEIA - Impacto Ambiental
+                                <span class="icon">⚡</span>
+                                <div class="label-content">
+                                    <span class="label-title">ISO 50001 - Gestión Energética</span>
+                                    <span class="label-subtitle">20 requisitos evaluados</span>
+                                </div>
                             </div>
-                            <div class="score-bar">
-                                <div class="score-fill warning" style="width: 72%"></div>
+                            <div class="score-progress">
+                                <div class="score-bar">
+                                    <div class="score-fill warning" style="width: 62%"></div>
+                                </div>
+                                <div class="score-value">62%</div>
                             </div>
-                            <div class="score-value">72%</div>
+                            <div class="score-status">
+                                <span class="status-badge warning">Mejora</span>
+                            </div>
                         </div>
+
+                        <div class="score-item info">
+                            <div class="score-label">
+                                <span class="icon">📊</span>
+                                <div class="label-content">
+                                    <span class="label-title">GRI Standards - Reportes ESG</span>
+                                    <span class="label-subtitle">35 indicadores evaluados</span>
+                                </div>
+                            </div>
+                            <div class="score-progress">
+                                <div class="score-bar">
+                                    <div class="score-fill info" style="width: 72%"></div>
+                                </div>
+                                <div class="score-value">72%</div>
+                            </div>
+                            <div class="score-status">
+                                <span class="status-badge info">En Progreso</span>
+                            </div>
+                        </div>
+
+                        <!-- Show More Button -->
+                        <div class="show-more-scores">
+                            <button class="btn btn--outline btn--sm" id="show-all-scores">
+                                Ver 76 normativas adicionales
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h4>Acciones Rápidas</h4>
+                    <div class="actions-grid">
+                        <button class="action-btn critical">
+                            <span class="action-icon">⚠️</span>
+                            <span class="action-text">Atender 3 críticos</span>
+                        </button>
+                        <button class="action-btn warning">
+                            <span class="action-icon">📋</span>
+                            <span class="action-text">Planificar 8 mejoras</span>
+                        </button>
+                        <button class="action-btn info">
+                            <span class="action-icon">📊</span>
+                            <span class="action-text">Generar reporte</span>
+                        </button>
+                        <button class="action-btn success">
+                            <span class="action-icon">🎯</span>
+                            <span class="action-text">Solicitar asesoría</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -284,421 +712,204 @@
     <!-- Critical Issues -->
     <section class="critical-issues">
         <div class="container">
-            <h2>Áreas Críticas Identificadas</h2>
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge-icon">🚨</span>
+                    <span>Análisis Crítico</span>
+                </div>
+                <h2>Áreas Prioritarias Identificadas</h2>
+                <p>Análisis de riesgos y oportunidades con impacto en cumplimiento ESG</p>
+            </div>
+
+            <div class="issues-filter">
+                <button class="filter-btn active" data-priority="all">Todos (11)</button>
+                <button class="filter-btn" data-priority="critical">Críticos (3)</button>
+                <button class="filter-btn" data-priority="high">Altos (4)</button>
+                <button class="filter-btn" data-priority="medium">Medios (4)</button>
+            </div>
+
             <div class="issues-grid">
-                <div class="issue-card critical">
+                <div class="issue-card critical" data-priority="critical">
                     <div class="issue-header">
                         <div class="issue-icon">⚠️</div>
                         <div class="severity-badge critical">Crítico</div>
+                        <div class="issue-id">#ESG-001</div>
                     </div>
                     <h3>DS 148/2003 - Residuos Peligrosos</h3>
-                    <p>Falta declaración anual RETC. Plan de manejo desactualizado desde 2022.</p>
+                    <p>Declaración anual RETC pendiente desde marzo 2024. Plan de manejo desactualizado y falta registro de transporte autorizado.</p>
                     <div class="issue-details">
                         <div class="detail">
                             <span class="label">Riesgo de multa:</span>
-                            <span class="value">$2M - $15M UTM</span>
+                            <span class="value critical">$2M - $15M UTM</span>
                         </div>
                         <div class="detail">
-                            <span class="label">Plazo para regularizar:</span>
-                            <span class="value">30 días</span>
+                            <span class="label">Plazo regularización:</span>
+                            <span class="value">30 días máximo</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">Autoridad competente:</span>
+                            <span class="value">SMA - Superintendencia</span>
+                        </div>
+                    </div>
+                    <div class="issue-impact">
+                        <div class="impact-item">
+                            <span class="impact-label">Legal</span>
+                            <div class="impact-level critical"></div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label">Reputacional</span>
+                            <div class="impact-level high"></div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label">Financiero</span>
+                            <div class="impact-level critical"></div>
                         </div>
                     </div>
                     <div class="issue-actions">
                         <button class="btn btn--danger btn--sm">Acción Inmediata</button>
-                        <button class="btn btn--outline btn--sm">Ver Detalle</button>
+                        <button class="btn btn--outline btn--sm">Ver Plan</button>
+                        <button class="btn btn--outline btn--sm">Contactar Asesor</button>
                     </div>
                 </div>
 
-                <div class="issue-card warning">
+                <div class="issue-card high" data-priority="high">
                     <div class="issue-header">
-                        <div class="issue-icon">🌾</div>
-                        <div class="severity-badge warning">Atención</div>
+                        <div class="issue-icon">⚡</div>
+                        <div class="severity-badge high">Alto</div>
+                        <div class="issue-id">#ESG-002</div>
                     </div>
-                    <h3>NCh 1333 - Calidad Aguas Riego</h3>
-                    <p>Parámetros de boro y conductividad eléctrica exceden límites permitidos.</p>
+                    <h3>ISO 50001 - Gestión Energética</h3>
+                    <p>Sin sistema formal de gestión energética. Consumo 25% sobre promedio sectorial. Oportunidad significativa de ahorro y reducción de huella.</p>
                     <div class="issue-details">
                         <div class="detail">
-                            <span class="label">Valores encontrados:</span>
-                            <span class="value">Boro: 3.2 mg/L (máx 2.0)</span>
+                            <span class="label">Potencial ahorro anual:</span>
+                            <span class="value success">$450M CLP</span>
                         </div>
                         <div class="detail">
-                            <span class="label">Acción sugerida:</span>
+                            <span class="label">Reducción CO2:</span>
+                            <span class="value success">2,500 tCO2eq/año</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">ROI estimado:</span>
+                            <span class="value success">24 meses</span>
+                        </div>
+                    </div>
+                    <div class="issue-impact">
+                        <div class="impact-item">
+                            <span class="impact-label">Económico</span>
+                            <div class="impact-level success"></div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label">Ambiental</span>
+                            <div class="impact-level success"></div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label">Competitivo</span>
+                            <div class="impact-level high"></div>
+                        </div>
+                    </div>
+                    <div class="issue-actions">
+                        <button class="btn btn--warning btn--sm">Evaluar Proyecto</button>
+                        <button class="btn btn--outline btn--sm">Ver Análisis</button>
+                        <button class="btn btn--outline btn--sm">Cotizar Auditoría</button>
+                    </div>
+                </div>
+
+                <div class="issue-card critical" data-priority="critical">
+                    <div class="issue-header">
+                        <div class="issue-icon">🌾</div>
+                        <div class="severity-badge critical">Crítico</div>
+                        <div class="issue-id">#ESG-003</div>
+                    </div>
+                    <h3>NCh 1333 - Calidad Aguas Riego</h3>
+                    <p>Parámetros de boro, conductividad eléctrica y sólidos disueltos exceden consistentemente los límites permitidos para riego.</p>
+                    <div class="issue-details">
+                        <div class="detail">
+                            <span class="label">Boro encontrado:</span>
+                            <span class="value critical">3.2 mg/L (máx 2.0)</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">Conductividad:</span>
+                            <span class="value critical">2.8 dS/m (máx 2.0)</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">Acción requerida:</span>
                             <span class="value">Sistema tratamiento</span>
                         </div>
                     </div>
+                    <div class="issue-impact">
+                        <div class="impact-item">
+                            <span class="impact-label">Regulatorio</span>
+                            <div class="impact-level critical"></div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label">Operacional</span>
+                            <div class="impact-level high"></div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label">Comunitario</span>
+                            <div class="impact-level high"></div>
+                        </div>
+                    </div>
                     <div class="issue-actions">
-                        <button class="btn btn--warning btn--sm">Planificar</button>
-                        <button class="btn btn--outline btn--sm">Ver Detalle</button>
+                        <button class="btn btn--danger btn--sm">Implementar Ya</button>
+                        <button class="btn btn--outline btn--sm">Ver Tecnologías</button>
+                        <button class="btn btn--outline btn--sm">Solicitar Cotización</button>
                     </div>
                 </div>
 
-                <div class="issue-card moderate">
+                <div class="issue-card medium" data-priority="medium">
                     <div class="issue-header">
-                        <div class="issue-icon">📋</div>
-                        <div class="severity-badge moderate">Moderado</div>
+                        <div class="issue-icon">📊</div>
+                        <div class="severity-badge medium">Medio</div>
+                        <div class="issue-id">#ESG-004</div>
                     </div>
-                    <h3>SEIA - Evaluación Impacto Ambiental</h3>
-                    <p>RCA vigente pero próxima a modificación. Monitoreo incompleto últimos 6 meses.</p>
+                    <h3>GRI Standards - Reportes ESG</h3>
+                    <p>Falta reporte de sostenibilidad bajo estándares GRI. Oportunidad de mejora en transparencia y rating ESG ante inversionistas.</p>
                     <div class="issue-details">
                         <div class="detail">
-                            <span class="label">Estado RCA:</span>
-                            <span class="value">Vigente hasta 2026</span>
+                            <span class="label">Beneficio rating:</span>
+                            <span class="value success">+15 puntos MSCI</span>
                         </div>
                         <div class="detail">
-                            <span class="label">Reportes pendientes:</span>
-                            <span class="value">3 informes semestrales</span>
+                            <span class="label">Timeline implementación:</span>
+                            <span class="value">4-6 meses</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">Costo estimado:</span>
+                            <span class="value">$3M - $5M CLP</span>
+                        </div>
+                    </div>
+                    <div class="issue-impact">
+                        <div class="impact-item">
+                            <span class="impact-label">Transparencia</span>
+                            <div class="impact-level success"></div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label">Inversionistas</span>
+                            <div class="impact-level success"></div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label">Competitivo</span>
+                            <div class="impact-level medium"></div>
                         </div>
                     </div>
                     <div class="issue-actions">
-                        <button class="btn btn--info btn--sm">Programar</button>
-                        <button class="btn btn--outline btn--sm">Ver Detalle</button>
+                        <button class="btn btn--info btn--sm">Desarrollar</button>
+                        <button class="btn btn--outline btn--sm">Ver Template</button>
+                        <button class="btn btn--outline btn--sm">Asesoría GRI</button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Action Plan -->
-    <section class="action-plan">
-        <div class="container">
-            <h2>Plan de Acción Recomendado</h2>
-            <div class="plan-tabs">
-                <button class="tab-btn active" data-tab="immediate">Inmediato (0-30 días)</button>
-                <button class="tab-btn" data-tab="short">Corto Plazo (1-6 meses)</button>
-                <button class="tab-btn" data-tab="medium">Mediano Plazo (6-18 meses)</button>
-            </div>
-
-            <div class="tab-content active" id="immediate">
-                <div class="actions-grid">
-                    <div class="action-card priority-critical">
-                        <div class="action-header">
-                            <div class="action-icon">📄</div>
-                            <div class="priority-badge critical">Crítico</div>
-                        </div>
-                        <h3>Actualizar Declaración RETC DS148</h3>
-                        <p>Completar y enviar declaración anual de residuos peligrosos. Actualizar plan de manejo.</p>
-                        <div class="action-metrics">
-                            <div class="metric">
-                                <span class="metric-label">Costo:</span>
-                                <span class="metric-value">$500K CLP</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Tiempo:</span>
-                                <span class="metric-value">15 días</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Impacto:</span>
-                                <span class="metric-value">Evita multas $15M</span>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn btn--danger btn--sm">Implementar Ahora</button>
-                            <button class="btn btn--outline btn--sm">Solicitar Asesoría</button>
-                        </div>
-                    </div>
-
-                    <div class="action-card priority-high">
-                        <div class="action-header">
-                            <div class="action-icon">🧪</div>
-                            <div class="priority-badge high">Alto</div>
-                        </div>
-                        <h3>Análisis Calidad Aguas NCh1333</h3>
-                        <p>Realizar análisis completo de parámetros según NCh1333 para aguas de riego.</p>
-                        <div class="action-metrics">
-                            <div class="metric">
-                                <span class="metric-label">Costo:</span>
-                                <span class="metric-value">$200K CLP</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Tiempo:</span>
-                                <span class="metric-value">7 días</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Beneficio:</span>
-                                <span class="metric-value">Compliance agua</span>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn btn--warning btn--sm">Programar</button>
-                            <button class="btn btn--outline btn--sm">Cotizar Laboratorio</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="short">
-                <div class="actions-grid">
-                    <div class="action-card priority-medium">
-                        <div class="action-header">
-                            <div class="action-icon">🏭</div>
-                            <div class="priority-badge medium">Medio</div>
-                        </div>
-                        <h3>Sistema Tratamiento Aguas DS90</h3>
-                        <p>Implementar sistema de tratamiento para cumplir límites DS90 en descargas.</p>
-                        <div class="action-metrics">
-                            <div class="metric">
-                                <span class="metric-label">Inversión:</span>
-                                <span class="metric-value">$45M CLP</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Tiempo:</span>
-                                <span class="metric-value">4 meses</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">ROI:</span>
-                                <span class="metric-value">Compliance DS90</span>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn btn--info btn--sm">Evaluar</button>
-                            <button class="btn btn--outline btn--sm">Cotizar Proveedores</button>
-                        </div>
-                    </div>
-
-                    <div class="action-card priority-medium">
-                        <div class="action-header">
-                            <div class="action-icon">🏆</div>
-                            <div class="priority-badge medium">Medio</div>
-                        </div>
-                        <h3>Certificación ISO 14001</h3>
-                        <p>Implementar sistema de gestión ambiental bajo estándar ISO 14001:2015.</p>
-                        <div class="action-metrics">
-                            <div class="metric">
-                                <span class="metric-label">Inversión:</span>
-                                <span class="metric-value">$8M CLP</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Tiempo:</span>
-                                <span class="metric-value">6 meses</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Beneficio:</span>
-                                <span class="metric-value">Certificación internacional</span>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn btn--info btn--sm">Iniciar Proceso</button>
-                            <button class="btn btn--outline btn--sm">Asesoría ISO</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="medium">
-                <div class="actions-grid">
-                    <div class="action-card priority-strategic">
-                        <div class="action-header">
-                            <div class="action-icon">🌱</div>
-                            <div class="priority-badge strategic">Estratégico</div>
-                        </div>
-                        <h3>Transformación Digital Ambiental</h3>
-                        <p>Implementar plataforma integrada de monitoreo y reportes ambientales automáticos.</p>
-                        <div class="action-metrics">
-                            <div class="metric">
-                                <span class="metric-label">Inversión:</span>
-                                <span class="metric-value">$150M CLP</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Tiempo:</span>
-                                <span class="metric-value">12 meses</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">ROI:</span>
-                                <span class="metric-value">Automatización 80%</span>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn btn--success btn--sm">Planificar</button>
-                            <button class="btn btn--outline btn--sm">Roadmap Tecnológico</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Plans -->
-    <section class="pricing-plans">
-        <div class="container">
-            <div class="section-header">
-                <h2>Planes y Servicios</h2>
-                <p>Desde diagnósticos gratuitos hasta implementación completa con asesoría experta</p>
-            </div>
-            
-            <div class="plans-grid">
-                <div class="plan-card starter">
-                    <div class="plan-header">
-                        <div class="plan-icon">🔍</div>
-                        <h3>Diagnóstico Gratuito</h3>
-                        <div class="plan-price">
-                            <span class="price">$0</span>
-                            <span class="period">/ análisis</span>
-                        </div>
-                    </div>
-                    <div class="plan-features">
-                        <ul>
-                            <li>✅ 1 análisis documental básico</li>
-                            <li>✅ Score de cumplimiento general</li>
-                            <li>✅ Top 3 áreas críticas</li>
-                            <li>✅ Reporte PDF ejecutivo</li>
-                            <li>❌ Asesoría personalizada</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn--outline btn--full">Probar Gratis</button>
-                </div>
-
-                <div class="plan-card professional recommended">
-                    <div class="plan-badge">Recomendado</div>
-                    <div class="plan-header">
-                        <div class="plan-icon">💼</div>
-                        <h3>Plan Profesional</h3>
-                        <div class="plan-price">
-                            <span class="price">$99</span>
-                            <span class="period">USD / mes</span>
-                        </div>
-                    </div>
-                    <div class="plan-features">
-                        <ul>
-                            <li>✅ Análisis ilimitados</li>
-                            <li>✅ Dashboard en tiempo real</li>
-                            <li>✅ Alertas normativas automáticas</li>
-                            <li>✅ Plan de acción personalizado</li>
-                            <li>✅ Soporte por email</li>
-                            <li>✅ Reportes para auditorías</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn--primary btn--full">Empezar Ahora</button>
-                </div>
-
-                <div class="plan-card enterprise">
-                    <div class="plan-header">
-                        <div class="plan-icon">🏢</div>
-                        <h3>Plan Enterprise</h3>
-                        <div class="plan-price">
-                            <span class="price">$499</span>
-                            <span class="period">USD / mes</span>
-                        </div>
-                    </div>
-                    <div class="plan-features">
-                        <ul>
-                            <li>✅ Todo lo del Plan Profesional</li>
-                            <li>✅ Integración API personalizada</li>
-                            <li>✅ Asesoría experta mensual (4h)</li>
-                            <li>✅ Acompañamiento auditorías</li>
-                            <li>✅ Soporte prioritario 24/7</li>
-                            <li>✅ Branding personalizado</li>
-                            <li>✅ SLA garantizado</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn--primary btn--full">Contactar Ventas</button>
-                </div>
-            </div>
-
-            <div class="additional-services">
-                <h3>Servicios Adicionales de Asesoría</h3>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">👨‍⚖️</div>
-                        <h4>Asesoría Legal Normativa</h4>
-                        <p>Consultoría especializada en regulaciones ambientales chilenas</p>
-                        <div class="service-price">$200 USD/hora</div>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🎯</div>
-                        <h4>Implementación Certificación</h4>
-                        <p>Acompañamiento completo para ISO 14001, 45001 y otros estándares</p>
-                        <div class="service-price">Desde $5,000 USD</div>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🔍</div>
-                        <h4>Auditoría de Cumplimiento</h4>
-                        <p>Revisión exhaustiva de documentación y procesos normativos</p>
-                        <div class="service-price">Desde $3,000 USD</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>¿Listo para asegurar el cumplimiento normativo de tu empresa?</h2>
-                <p>Comienza con nuestro diagnóstico gratuito o agenda una asesoría personalizada</p>
-                <div class="cta-buttons">
-                    <button class="btn btn--primary btn--lg" id="start-free-btn">
-                        🚀 Diagnóstico Gratuito
-                    </button>
-                    <button class="btn btn--outline btn--lg" id="schedule-demo-btn">
-                        📅 Agendar Demo Personalizada
+                <!-- More issues can be added here -->
+                <div class="show-more-issues">
+                    <button class="btn btn--outline" id="show-all-issues">
+                        Ver 7 áreas adicionales identificadas
                     </button>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="logo">
-                        <div class="logo-icon">🌿</div>
-                        <div class="logo-text">
-                            <h3>EcoAnalytics</h3>
-                            <span>Agente IA Cumplimiento Chile</span>
-                        </div>
-                    </div>
-                    <p>Análisis inteligente de cumplimiento normativo con IA avanzada especializada en regulaciones chilenas.</p>
-                    <div class="footer-contact">
-                        <p>📧 contacto@ecoanalytics.cl</p>
-                        <p>📞 +56 2 2345 6789</p>
-                    </div>
-                </div>
-                <div class="footer-right">
-                    <div class="footer-section">
-                        <h4>Producto</h4>
-                        <ul>
-                            <li><a href="#features">Análisis IA</a></li>
-                            <li><a href="#normativas">Normativas</a></li>
-                            <li><a href="#pricing">Precios</a></li>
-                            <li><a href="#api">Integración API</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Servicios</h4>
-                        <ul>
-                            <li><a href="#consultoria">Consultoría</a></li>
-                            <li><a href="#auditoria">Auditorías</a></li>
-                            <li><a href="#certificacion">Certificación ISO</a></li>
-                            <li><a href="#capacitacion">Capacitación</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Empresa</h4>
-                        <ul>
-                            <li><a href="#about">Nosotros</a></li>
-                            <li><a href="#contact">Contacto</a></li>
-                            <li><a href="#careers">Carreras</a></li>
-                            <li><a href="#blog">Blog</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="#privacy">Privacidad</a></li>
-                            <li><a href="#terms">Términos</a></li>
-                            <li><a href="#cookies">Cookies</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EcoAnalytics. Todos los derechos reservados. Especialistas en cumplimiento normativo chileno.</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- Contact Modal -->
     <div id="contact-modal" class="modal hidden">
@@ -712,34 +923,114 @@
                     <form id="contact-form">
                         <div class="form-group">
                             <label>Nombre completo</label>
-                            <input type="text" name="name" required>
+                            <input type="text" name="name" required placeholder="Ej: Juan Pérez">
                         </div>
                         <div class="form-group">
                             <label>Email empresarial</label>
-                            <input type="email" name="email" required>
+                            <input type="email" name="email" required placeholder="juan.perez@empresa.cl">
                         </div>
                         <div class="form-group">
                             <label>Empresa</label>
-                            <input type="text" name="company" required>
+                            <input type="text" name="company" required placeholder="Nombre de tu empresa">
                         </div>
                         <div class="form-group">
-                            <label>Sector</label>
+                            <label>Cargo</label>
+                            <input type="text" name="position" placeholder="Ej: Gerente de Sustentabilidad">
+                        </div>
+                        <div class="form-group">
+                            <label>Sector industrial</label>
                             <select name="sector" required>
                                 <option value="">Seleccionar sector</option>
                                 <option value="mineria">Minería</option>
-                                <option value="manufactura">Manufactura</option>
                                 <option value="energia">Energía</option>
-                                <option value="retail">Retail</option>
+                                <option value="manufactura">Manufactura</option>
+                                <option value="retail">Retail y Consumo</option>
+                                <option value="servicios-financieros">Servicios Financieros</option>
                                 <option value="agroindustria">Agroindustria</option>
-                                <option value="servicios">Servicios</option>
+                                <option value="construccion">Construcción</option>
+                                <option value="transporte">Transporte y Logística</option>
+                                <option value="telecomunicaciones">Telecomunicaciones</option>
+                                <option value="inmobiliario">Inmobiliario</option>
                                 <option value="otro">Otro</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>¿Qué necesitas?</label>
-                            <textarea name="message" placeholder="Describe tu situación actual de cumplimiento normativo..." rows="4"></textarea>
+                            <label>Tamaño de empresa</label>
+                            <select name="company-size">
+                                <option value="">Seleccionar tamaño</option>
+                                <option value="startup">Startup (1-10 empleados)</option>
+                                <option value="pyme">PYME (11-100 empleados)</option>
+                                <option value="mediana">Mediana (101-500 empleados)</option>
+                                <option value="grande">Grande (500+ empleados)</option>
+                                <option value="corporacion">Corporación (1000+ empleados)</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn btn--primary btn--full">Solicitar Asesoría</button>
+                        <div class="form-group">
+                            <label>Área de interés prioritaria</label>
+                            <select name="priority-area" required>
+                                <option value="">Seleccionar área</option>
+                                <option value="compliance-basico">Cumplimiento Básico (DS, NCh, SEIA)</option>
+                                <option value="iso-ambiental">ISO Ambiental (14001, 50001, 14064)</option>
+                                <option value="iso-social">ISO Social y Seguridad (26000, 45001, 37001)</option>
+                                <option value="reportes-esg">Reportes ESG (GRI, SASB, TCFD)</option>
+                                <option value="neutralidad-carbono">Estrategia Carbono Neutralidad</option>
+                                <option value="auditoria-integral">Auditoría Integral ESG</option>
+                                <option value="transformacion-digital">Transformación Digital ESG</option>
+                                <option value="due-diligence">Due Diligence ESG</option>
+                                <option value="financiamiento-verde">Financiamiento Verde</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Presupuesto aproximado</label>
+                            <select name="budget">
+                                <option value="">Seleccionar rango</option>
+                                <option value="hasta-5k">Hasta $5K USD</option>
+                                <option value="5k-15k">$5K - $15K USD</option>
+                                <option value="15k-50k">$15K - $50K USD</option>
+                                <option value="50k-100k">$50K - $100K USD</option>
+                                <option value="100k-mas">$100K+ USD</option>
+                                <option value="por-definir">Por definir</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Urgencia del proyecto</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="urgency" value="inmediato" required>
+                                    <span class="radio-custom"></span>
+                                    Inmediato (esta semana)
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="urgency" value="corto-plazo" required>
+                                    <span class="radio-custom"></span>
+                                    Corto plazo (1-3 meses)
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="urgency" value="planificacion" required>
+                                    <span class="radio-custom"></span>
+                                    Planificación (3-6 meses)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Describe tu situación actual</label>
+                            <textarea name="message" placeholder="Cuéntanos sobre tu situación actual de cumplimiento ESG, principales desafíos, metas de sustentabilidad y cómo podemos ayudarte a lograr el máximo impacto..." rows="4"></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" value="yes">
+                                <span class="checkbox-custom"></span>
+                                Suscribirme al newsletter semanal de EcoAnalytics
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span class="checkbox-custom"></span>
+                                Acepto la <a href="#privacy" target="_blank">política de privacidad</a> y el tratamiento de mis datos
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">
+                            🚀 Solicitar Asesoría Personalizada
+                        </button>
                     </form>
                 </div>
             </div>
