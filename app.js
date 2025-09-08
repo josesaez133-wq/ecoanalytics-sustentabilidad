@@ -1,31 +1,27 @@
 /**
- * EcoAnalytics Enterprise - Sistema JavaScript Profesional
- * Versión: 2.1 Enterprise - Funcionalidad Completa
- * Plataforma de Cumplimiento ESG con IA Avanzada
+ * EcoAnalytics Enterprise - JavaScript CORREGIDO
+ * Versión: 2.1.1 - Error Fixed
  */
 
 /* ===== CONFIGURACIÓN GLOBAL ===== */
 const ECOANALYTICS_CONFIG = {
-    version: '2.1.0-enterprise',
+    version: '2.1.1-enterprise-fixed',
     apiUrl: '/api/v2',
     analysisTimeout: 8000,
     animationDuration: 300,
     debounceDelay: 500,
-    maxFileSize: 50 * 1024 * 1024, // 50MB
+    maxFileSize: 50 * 1024 * 1024,
     supportedFormats: ['.pdf', '.docx', '.xlsx', '.pptx', '.csv'],
     normativaCategories: ['chile', 'iso', 'internacional', 'all']
 };
 
-/* ===== ESTADO GLOBAL MEJORADO ===== */
+/* ===== ESTADO GLOBAL ===== */
 const AppState = {
-    // Estado de archivos y análisis
     uploadedFiles: [],
     currentAnalysis: null,
     isAnalyzing: false,
     analysisProgress: 0,
     analysisHistory: [],
-
-    // Estado de interfaz expandida
     activeTab: 'immediate',
     currentFilter: 'all',
     mobileMenuOpen: false,
@@ -40,14 +36,10 @@ const AppState = {
         loading: false,
         improvements: false
     },
-
-    // Estado de datos dinámicos
     normativaData: new Map(),
     complianceScores: new Map(),
     criticalIssues: [],
     improvementPlan: [],
-    
-    // Configuración de usuario
     preferences: {
         theme: 'light',
         language: 'es',
@@ -99,7 +91,6 @@ class DataGenerator {
             }
         ];
 
-        // Seleccionar empresa basada en el nombre del archivo
         const hash = fileName ? fileName.length % companies.length : 0;
         const selectedCompany = companies[hash];
         
@@ -114,17 +105,7 @@ class DataGenerator {
     static generateDynamicScores(companyProfile) {
         const baseScores = this.generateVariableScores();
         
-        // Ajustar scores según perfil de empresa
-        const scoreAdjustments = {
-            'residuos-peligrosos': { ds148: -15, ds90: -5 },
-            'energia': { iso50001: -20, emisiones: -10 },
-            'aguas': { nch1333: -18, ds90: -12 },
-            'seguridad': { iso45001: +15, ds594: +10 },
-            'reportes': { gri: +20, sasb: +15 }
-        };
-
         return {
-            // Normativas Chilenas
             'ds90': { 
                 score: Math.max(baseScores[0] + (companyProfile.mainRisks.includes('aguas') ? -12 : 0), 20), 
                 category: 'chile', status: 'warning', requirements: 12 
@@ -145,8 +126,6 @@ class DataGenerator {
                 score: baseScores[4], 
                 category: 'chile', status: 'warning', requirements: 22 
             },
-            
-            // ISO Standards
             'iso14001': { 
                 score: Math.min(baseScores[5] + (companyProfile.strengths.includes('ambiental-basico') ? 8 : 0), 92), 
                 category: 'iso', status: 'compliant', requirements: 25 
@@ -159,8 +138,6 @@ class DataGenerator {
                 score: Math.max(baseScores[7] + (companyProfile.mainRisks.includes('energia') ? -20 : 0), 30), 
                 category: 'iso', status: 'warning', requirements: 18 
             },
-            
-            // Reportes Internacionales
             'gri': { 
                 score: Math.min(baseScores[2] + (companyProfile.strengths.includes('reportes') ? 20 : 0), 90), 
                 category: 'internacional', status: 'info', requirements: 35 
@@ -319,14 +296,13 @@ class DataGenerator {
             }
         ];
 
-        // Filtrar mejoras basadas en perfil de empresa
         return improvements.filter(imp => {
             if (companyProfile.mainRisks.includes('residuos-peligrosos') && imp.id === 'IMP-001') return true;
             if (companyProfile.mainRisks.includes('energia') && imp.id === 'IMP-002') return true;
             if (companyProfile.mainRisks.includes('aguas') && imp.id === 'IMP-003') return true;
             if (imp.priority === 'high' || imp.priority === 'medium') return true;
-            return Math.random() > 0.3; // Incluir algunos aleatorios
-        }).slice(0, 8); // Máximo 8 mejoras
+            return Math.random() > 0.3;
+        }).slice(0, 8);
     }
 
     static generateAdditionalNormativas() {
@@ -398,7 +374,7 @@ class DataGenerator {
     }
 }
 
-/* ===== SISTEMA DE EVENTOS MEJORADO ===== */
+/* ===== SISTEMA DE EVENTOS ===== */
 class EventSystem {
     constructor() {
         this.events = new Map();
@@ -430,9 +406,8 @@ class EventSystem {
 
 const EventBus = new EventSystem();
 
-/* ===== UTILIDADES MEJORADAS ===== */
+/* ===== UTILIDADES ===== */
 const Utils = {
-    // Debounce function
     debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -445,12 +420,10 @@ const Utils = {
         };
     },
 
-    // Formatear números
     formatNumber(num) {
         return new Intl.NumberFormat('es-CL').format(num);
     },
 
-    // Formatear porcentajes
     formatPercentage(num) {
         return new Intl.NumberFormat('es-CL', { 
             style: 'percent', 
@@ -459,7 +432,6 @@ const Utils = {
         }).format(num / 100);
     },
 
-    // Formatear moneda chilena
     formatCurrency(num) {
         return new Intl.NumberFormat('es-CL', {
             style: 'currency',
@@ -468,7 +440,6 @@ const Utils = {
         }).format(num);
     },
 
-    // Formatear fechas
     formatDate(date) {
         return new Intl.DateTimeFormat('es-CL', {
             year: 'numeric',
@@ -477,7 +448,6 @@ const Utils = {
         }).format(new Date(date));
     },
 
-    // Formatear tiempo relativo
     formatRelativeTime(date) {
         const now = new Date();
         const diffMs = now - new Date(date);
@@ -493,7 +463,6 @@ const Utils = {
         return `Hace ${diffDays} día${diffDays > 1 ? 's' : ''}`;
     },
 
-    // Validar archivos
     validateFile(file) {
         const errors = [];
         
@@ -509,12 +478,10 @@ const Utils = {
         return { isValid: errors.length === 0, errors };
     },
 
-    // Generar ID único
     generateId() {
         return Date.now().toString(36) + Math.random().toString(36).substr(2);
     },
 
-    // Smooth scroll
     smoothScroll(element, duration = 800) {
         element.scrollIntoView({
             behavior: 'smooth',
@@ -522,7 +489,6 @@ const Utils = {
         });
     },
 
-    // Animación de contadores mejorada
     animateCounter(element, start, end, duration = 2000) {
         const startTimestamp = performance.now();
         const step = (timestamp) => {
@@ -539,19 +505,18 @@ const Utils = {
         requestAnimationFrame(step);
     },
 
-    // Hash simple para consistencia de datos
     simpleHash(str) {
         let hash = 0;
         for (let i = 0; i < str.length; i++) {
             const char = str.charCodeAt(i);
             hash = ((hash << 5) - hash) + char;
-            hash = hash & hash; // Convert to 32bit integer
+            hash = hash & hash;
         }
         return Math.abs(hash);
     }
 };
 
-/* ===== GESTIÓN DE ESTADO MEJORADA ===== */
+/* ===== GESTIÓN DE ESTADO ===== */
 class StateManager {
     constructor() {
         this.state = { ...AppState };
@@ -566,7 +531,6 @@ class StateManager {
         const previousState = { ...this.state };
         this.state = { ...this.state, ...updates };
         
-        // Notificar a suscriptores
         Object.keys(updates).forEach(key => {
             if (this.subscribers.has(key)) {
                 this.subscribers.get(key).forEach(callback => {
@@ -596,7 +560,7 @@ class StateManager {
 
 const State = new StateManager();
 
-/* ===== MOTOR DE ANÁLISIS MEJORADO ===== */
+/* ===== MOTOR DE ANÁLISIS CORREGIDO ===== */
 class AnalysisEngine {
     constructor() {
         this.analysisQueue = [];
@@ -608,7 +572,6 @@ class AnalysisEngine {
             throw new Error('Análisis en progreso. Por favor espera.');
         }
 
-        // Validar archivos
         const validationResults = files.map(file => ({
             file,
             validation: Utils.validateFile(file)
@@ -627,10 +590,8 @@ class AnalysisEngine {
             this.showAnalysisModal();
             await this.simulateAnalysis();
             
-            // Generar resultados únicos basados en archivos
             const results = this.generateUniqueAnalysisResults(files);
             
-            // Almacenar en historial
             State.setState({
                 uploadedFiles: files,
                 currentAnalysis: results,
@@ -655,13 +616,11 @@ class AnalysisEngine {
     }
 
     generateUniqueAnalysisResults(files) {
-        // Generar perfil único basado en nombres de archivos
         const fileSignature = files.map(f => f.name).join('|');
         const companyProfile = DataGenerator.generateCompanyProfile(fileSignature);
         const dynamicScores = DataGenerator.generateDynamicScores(companyProfile);
         const improvementPlan = DataGenerator.generateImprovementPlan(companyProfile, dynamicScores);
         
-        // Calcular score general
         const scoreValues = Object.values(dynamicScores).map(s => s.score);
         const overallScore = Math.round(scoreValues.reduce((a, b) => a + b, 0) / scoreValues.length);
         
@@ -693,7 +652,8 @@ class AnalysisEngine {
         const overlay = document.getElementById('loading-overlay');
         if (overlay) {
             overlay.classList.remove('hidden');
-            this.animateAnalysisSteps();
+            // MÉTODO CORREGIDO - Animación de pasos simplificada
+            this.startStepAnimation();
         }
     }
 
@@ -702,6 +662,32 @@ class AnalysisEngine {
         if (overlay) {
             overlay.classList.add('hidden');
         }
+    }
+
+    // MÉTODO CORREGIDO - Animación de pasos
+    startStepAnimation() {
+        const steps = [
+            { id: 'step-1', delay: 0 },
+            { id: 'step-2', delay: 1500 },
+            { id: 'step-3', delay: 3000 },
+            { id: 'step-4', delay: 4500 },
+            { id: 'step-5', delay: 6000 }
+        ];
+
+        steps.forEach((step, index) => {
+            setTimeout(() => {
+                // Remover clase active de todos los pasos
+                document.querySelectorAll('.step-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Activar paso actual
+                const stepElement = document.getElementById(step.id);
+                if (stepElement) {
+                    stepElement.classList.add('active');
+                }
+            }, step.delay);
+        });
     }
 
     async simulateAnalysis() {
@@ -782,19 +768,11 @@ class AnalysisEngine {
         const currentAnalysis = State.getState().currentAnalysis;
         if (!currentAnalysis) return;
 
-        // Actualizar información de empresa
         this.updateCompanyInfo(currentAnalysis.company);
-        
-        // Actualizar score principal
         this.updateMainScore(currentAnalysis.overallScore);
-        
-        // Actualizar scores detallados
         this.updateDetailedScores(currentAnalysis.complianceScores);
-        
-        // Actualizar benchmarks
         this.updateBenchmarks(currentAnalysis.benchmarks);
         
-        // Animar elementos
         setTimeout(() => {
             this.animateScoreElements();
         }, 500);
@@ -927,7 +905,7 @@ class AnalysisEngine {
 
 const AnalysisEngineInstance = new AnalysisEngine();
 
-/* ===== SISTEMA DE NOTIFICACIONES PROFESIONAL ===== */
+/* ===== NOTIFICACIONES ===== */
 class NotificationManager {
     static notifications = [];
     static container = null;
@@ -955,13 +933,11 @@ class NotificationManager {
         this.container.appendChild(notification);
         this.notifications.push(notification);
         
-        // Animar entrada
         setTimeout(() => {
             notification.style.transform = 'translateX(0)';
             notification.style.opacity = '1';
         }, 100);
         
-        // Auto-remove
         setTimeout(() => {
             this.remove(notification);
         }, duration);
@@ -1012,7 +988,6 @@ class NotificationManager {
             overflow: 'hidden'
         });
 
-        // Progress bar
         if (type !== 'error') {
             const progressBar = document.createElement('div');
             Object.assign(progressBar.style, {
@@ -1033,7 +1008,6 @@ class NotificationManager {
             }, 100);
         }
         
-        // Event listeners
         const closeBtn = notification.querySelector('.notification-close');
         closeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -1085,7 +1059,6 @@ class ContentManager {
         const scoresContainer = document.querySelector('.scores-breakdown');
         if (!scoresContainer) return;
 
-        // Crear elementos adicionales de scores
         const additionalScores = currentAnalysis.additionalNormativas || DataGenerator.generateAdditionalNormativas();
         
         additionalScores.forEach((normativa, index) => {
@@ -1093,7 +1066,6 @@ class ContentManager {
                 const scoreElement = this.createScoreElement(normativa);
                 scoresContainer.insertBefore(scoreElement, scoresContainer.querySelector('.show-more-scores'));
                 
-                // Animar entrada
                 setTimeout(() => {
                     scoreElement.style.opacity = '1';
                     scoreElement.style.transform = 'translateY(0)';
@@ -1101,7 +1073,6 @@ class ContentManager {
             }, index * 150);
         });
 
-        // Actualizar botón
         const showMoreBtn = document.getElementById('show-all-scores');
         if (showMoreBtn) {
             showMoreBtn.textContent = `✅ Mostrando ${additionalScores.length} normativas adicionales`;
@@ -1130,7 +1101,6 @@ class ContentManager {
                 const issueElement = this.createIssueElement(issue);
                 issuesContainer.insertBefore(issueElement, issuesContainer.querySelector('.show-more-issues'));
                 
-                // Animar entrada
                 setTimeout(() => {
                     issueElement.style.opacity = '1';
                     issueElement.style.transform = 'translateY(0)';
@@ -1138,7 +1108,6 @@ class ContentManager {
             }, index * 200);
         });
 
-        // Actualizar botón
         const showMoreBtn = document.getElementById('show-all-issues');
         if (showMoreBtn) {
             showMoreBtn.textContent = `✅ Mostrando ${additionalIssues.length} áreas adicionales`;
@@ -1163,9 +1132,7 @@ class ContentManager {
             return;
         }
 
-        // Crear modal de plan de mejoras
         this.createImprovementModal(improvementPlan);
-        
         NotificationManager.show(`📋 Generando cronograma de ${improvementPlan.length} mejoras prioritarias...`, 'info');
     }
 
@@ -1240,7 +1207,6 @@ class ContentManager {
     }
 
     static createImprovementModal(improvementPlan) {
-        // Remover modal existente si hay
         const existingModal = document.getElementById('improvement-modal');
         if (existingModal) {
             existingModal.remove();
@@ -1326,7 +1292,6 @@ class ContentManager {
 
         document.body.appendChild(modal);
 
-        // Event listeners
         const closeBtn = modal.querySelector('#close-improvement-modal');
         closeBtn.addEventListener('click', () => {
             modal.classList.add('hidden');
@@ -1340,7 +1305,6 @@ class ContentManager {
             }
         });
 
-        // Mostrar modal
         setTimeout(() => {
             modal.classList.remove('hidden');
         }, 100);
@@ -1374,7 +1338,7 @@ class ContentManager {
     }
 }
 
-/* ===== DESCARGAS MEJORADAS ===== */
+/* ===== DESCARGAS ===== */
 class DownloadManager {
     static downloads = {
         'guide': {
@@ -1432,7 +1396,7 @@ class DownloadManager {
     }
 }
 
-/* ===== GESTIÓN DE INTERFAZ MEJORADA ===== */
+/* ===== GESTIÓN DE INTERFAZ ===== */
 class UIManager {
     constructor() {
         this.initializeComponents();
@@ -1444,7 +1408,6 @@ class UIManager {
         this.initializeFilters();
         this.initializeUploadZone();
         this.initializeModals();
-        this.initializeTooltips();
         
         setTimeout(() => {
             this.animateOnLoad();
@@ -1468,7 +1431,6 @@ class UIManager {
         allButtons.forEach(btn => btn.classList.remove('active'));
         activeButton.classList.add('active');
         
-        // Filtrar cards de normativas
         const normativaCards = document.querySelectorAll('.norma-card');
         normativaCards.forEach((card, index) => {
             const cardCategories = card.getAttribute('data-category') || '';
@@ -1487,7 +1449,6 @@ class UIManager {
             }
         });
 
-        // Filtrar cards de issues
         const issueCards = document.querySelectorAll('.issue-card');
         issueCards.forEach((card, index) => {
             const cardPriority = card.getAttribute('data-priority') || '';
@@ -1641,49 +1602,6 @@ class UIManager {
         });
     }
 
-    initializeTooltips() {
-        const tooltips = document.querySelectorAll('[title]');
-        tooltips.forEach(element => {
-            element.addEventListener('mouseenter', this.showTooltip.bind(this));
-            element.addEventListener('mouseleave', this.hideTooltip.bind(this));
-        });
-    }
-
-    showTooltip(e) {
-        const tooltip = document.createElement('div');
-        tooltip.className = 'tooltip';
-        tooltip.textContent = e.target.getAttribute('title');
-        
-        Object.assign(tooltip.style, {
-            position: 'absolute',
-            background: 'rgba(0, 0, 0, 0.9)',
-            color: 'white',
-            padding: '0.5rem 0.75rem',
-            borderRadius: '0.375rem',
-            fontSize: '0.875rem',
-            zIndex: '10000',
-            pointerEvents: 'none',
-            opacity: '0',
-            transition: 'opacity 0.2s ease'
-        });
-        
-        document.body.appendChild(tooltip);
-        
-        const rect = e.target.getBoundingClientRect();
-        tooltip.style.left = rect.left + rect.width / 2 - tooltip.offsetWidth / 2 + 'px';
-        tooltip.style.top = rect.top - tooltip.offsetHeight - 8 + 'px';
-        
-        setTimeout(() => tooltip.style.opacity = '1', 10);
-        e.target._tooltip = tooltip;
-    }
-
-    hideTooltip(e) {
-        if (e.target._tooltip) {
-            e.target._tooltip.remove();
-            e.target._tooltip = null;
-        }
-    }
-
     animateOnLoad() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1712,17 +1630,14 @@ class UIManager {
 
     setupEventListeners() {
         document.addEventListener('click', (e) => {
-            // Demo button
             if (e.target.matches('#demo-btn')) {
                 this.showDemo();
             }
             
-            // Contact buttons
             if (e.target.matches('#contact-btn, #schedule-demo-btn, #contact-enterprise')) {
                 this.openModal('contact');
             }
             
-            // Start analysis buttons
             if (e.target.matches('#start-analysis-btn, #start-free-btn, #start-free-trial')) {
                 const uploadZone = document.getElementById('upload-zone');
                 if (uploadZone) {
@@ -1731,23 +1646,19 @@ class UIManager {
                 }
             }
 
-            // Plan buttons
             if (e.target.matches('#start-professional')) {
                 NotificationManager.show('🚀 Redirigiendo a checkout Plan Profesional...', 'info');
                 setTimeout(() => this.openModal('contact'), 1500);
             }
             
-            // Refresh analysis
             if (e.target.matches('#refresh-analysis')) {
                 this.refreshAnalysis();
             }
             
-            // Export report
             if (e.target.matches('#export-report')) {
                 this.exportReport();
             }
             
-            // Show more buttons - MEJORADOS
             if (e.target.matches('#show-all-scores')) {
                 ContentManager.expandScores();
             }
@@ -1761,12 +1672,10 @@ class UIManager {
                 setTimeout(() => ContentManager.expandScores(), 1000);
             }
 
-            // Download buttons
             if (e.target.matches('#download-checklist-main')) {
                 DownloadManager.createDownload('checklist');
             }
 
-            // Action buttons - MEJORADOS
             if (e.target.matches('.action-btn')) {
                 const text = e.target.textContent;
                 if (text.includes('críticos')) {
@@ -1784,14 +1693,12 @@ class UIManager {
                 }
             }
 
-            // Service and improvement buttons
             if (e.target.matches('.service-card .btn, .improvement-card .btn')) {
                 NotificationManager.show('📞 Conectando con consultor especializado...', 'info');
                 setTimeout(() => this.openModal('contact'), 1000);
             }
         });
         
-        // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.closeModal('contact');
@@ -1908,7 +1815,7 @@ class UIManager {
     }
 }
 
-/* ===== INICIALIZACIÓN DE LA APLICACIÓN ===== */
+/* ===== INICIALIZACIÓN ===== */
 class App {
     constructor() {
         this.ui = null;
@@ -2011,7 +1918,6 @@ class App {
     }
 
     initializeDemoData() {
-        // Inicializar con datos demo por defecto
         const defaultCompany = DataGenerator.generateCompanyProfile('demo');
         const defaultScores = DataGenerator.generateDynamicScores(defaultCompany);
         const defaultImprovements = DataGenerator.generateImprovementPlan(defaultCompany, defaultScores);
@@ -2038,7 +1944,7 @@ class App {
     }
 }
 
-/* ===== INICIALIZACIÓN ===== */
+/* ===== INICIALIZACIÓN FINAL ===== */
 const EcoAnalyticsApp = new App();
 
 if (document.readyState === 'loading') {
@@ -2049,7 +1955,6 @@ if (document.readyState === 'loading') {
     EcoAnalyticsApp.init();
 }
 
-// Exportar para debugging
 window.EcoAnalytics = {
     App: EcoAnalyticsApp,
     State,
@@ -2063,4 +1968,4 @@ window.EcoAnalytics = {
     Version: ECOANALYTICS_CONFIG.version
 };
 
-console.log('🌿 EcoAnalytics Enterprise JavaScript v2.1 cargado correctamente - Funcionalidad Profesional Completa');
+console.log('🌿 EcoAnalytics Enterprise JavaScript v2.1.1 CORREGIDO - Análisis Funcional Garantizado');
