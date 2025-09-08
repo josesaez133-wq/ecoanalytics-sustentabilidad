@@ -94,7 +94,7 @@ const DemoData = {
             authority: 'SMA - Superintendencia',
             impacts: {
                 legal: 90,
-                reputacional: 75,
+                reputational: 75,
                 financial: 90,
                 operational: 60
             }
@@ -377,6 +377,528 @@ class StateManager {
 }
 
 const State = new StateManager();
+
+/* ===== SISTEMA DE DESCARGAS REALES ===== */
+class DownloadManager {
+    static downloads = {
+        'guide': {
+            name: 'Guía ESG Chile 2024',
+            filename: 'guia-esg-chile-2024.txt',
+            content: DownloadManager.generateGuideContent()
+        },
+        'checklist': {
+            name: 'Checklist Normativo Completo',
+            filename: 'checklist-normativo-chile.txt', 
+            content: DownloadManager.generateChecklistContent()
+        },
+        'calculator': {
+            name: 'Calculadora Huella Carbono',
+            filename: 'calculadora-carbono-template.txt',
+            content: DownloadManager.generateCalculatorContent()
+        },
+        'benchmark': {
+            name: 'Benchmark Sectorial ESG',
+            filename: 'benchmark-sectorial-esg.txt',
+            content: DownloadManager.generateBenchmarkContent()
+        },
+        'report': {
+            name: 'Reporte Análisis Demo',
+            filename: 'reporte-analisis-esg-demo.txt',
+            content: DownloadManager.generateReportContent()
+        }
+    };
+
+    static generateGuideContent() {
+        return `
+# GUÍA ESG CHILE 2024
+## La Guía Definitiva para el Cumplimiento ESG en Chile
+
+### ÍNDICE
+1. Marco Regulatorio Chileno
+2. Normativas Ambientales Clave
+3. Estándares Internacionales 
+4. Implementación Práctica
+5. Casos de Estudio
+6. Plan de Acción 12 Meses
+
+### 1. MARCO REGULATORIO CHILENO
+
+**Ley 19.300 - Ley de Bases del Medio Ambiente**
+- Establece el marco institucional ambiental
+- Define instrumentos de gestión ambiental
+- Regula el Sistema de Evaluación de Impacto Ambiental (SEIA)
+
+**DS 40/2012 - Reglamento del SEIA**
+- Procedimientos de evaluación ambiental
+- Clasificación de proyectos: EIA vs DIA
+- Plazos y requisitos de tramitación
+
+**Superintendencia del Medio Ambiente (SMA)**
+- Fiscalización y sanción
+- Programas de cumplimiento
+- Autoreporte de incumplimientos
+
+### 2. NORMATIVAS AMBIENTALES CLAVE
+
+**RESIDUOS LÍQUIDOS - DS 90/2000**
+- Límites descarga aguas superficiales
+- Sistemas tratamiento requeridos
+- Monitoreo y reporte obligatorio
+
+**RESIDUOS PELIGROSOS - DS 148/2003**
+- Clasificación sustancias peligrosas
+- Plan de manejo residuos
+- Declaración anual RETC
+- Transporte y almacenamiento
+
+**CALIDAD DEL AIRE**
+- DS 609/1998 - Normas fuentes fijas
+- Planes descontaminación
+- Material particulado PM10 y PM2.5
+
+### 3. ESTÁNDARES INTERNACIONALES
+
+**ISO 14001 - Gestión Ambiental**
+- Requisitos sistema gestión
+- Política ambiental
+- Objetivos y metas
+- Auditoría y revisión
+
+**ISO 50001 - Gestión Energética**
+- Política energética
+- Planificación energética
+- Indicadores desempeño
+- Auditorías energéticas
+
+**GRI STANDARDS - Reportes Sostenibilidad**
+- GRI 101: Fundamentos
+- GRI 102: Contenidos generales
+- GRI 103: Enfoque gestión
+- GRI 200, 300, 400: Temas específicos
+
+### 4. IMPLEMENTACIÓN PRÁCTICA
+
+**PASO 1: DIAGNÓSTICO INICIAL**
+✓ Identificación normativas aplicables
+✓ Gap analysis cumplimiento actual
+✓ Evaluación riesgos y oportunidades
+✓ Definición línea base
+
+**PASO 2: PLANIFICACIÓN**
+✓ Política ESG corporativa
+✓ Objetivos y metas SMART
+✓ Asignación responsabilidades
+✓ Cronograma implementación
+
+**PASO 3: IMPLEMENTACIÓN**
+✓ Procedimientos operacionales
+✓ Capacitación personal
+✓ Sistemas monitoreo
+✓ Controles operacionales
+
+**PASO 4: VERIFICACIÓN**
+✓ Auditorías internas
+✓ Revisión desempeño
+✓ Acciones correctivas
+✓ Mejora continua
+
+### 5. CASOS DE ESTUDIO CHILE
+
+**CASO 1: Minera Los Andes**
+- Desafío: Cumplimiento DS 90 y gestión relaves
+- Solución: Sistema tratamiento avanzado + monitoreo IoT
+- Resultado: 100% cumplimiento + ahorro $2M USD/año
+
+**CASO 2: Forestal Del Sur**
+- Desafío: Certificación FSC + ISO 14001
+- Solución: Gestión integral bosques + trazabilidad
+- Resultado: Certificación lograda + 25% premium precio
+
+**CASO 3: Retail MegaStore**
+- Desafío: Huella carbono + reporte GRI
+- Solución: Estrategia carbono neutral + digitalización
+- Resultado: 40% reducción emisiones + rating ESG A
+
+### 6. PLAN DE ACCIÓN 12 MESES
+
+**MES 1-3: FUNDAMENTOS**
+□ Diagnóstico compliance actual
+□ Identificación gaps críticos
+□ Política ESG corporativa
+□ Equipo ESG multidisciplinario
+
+**MES 4-6: IMPLEMENTACIÓN CORE**
+□ Procedimientos operacionales
+□ Sistemas de monitoreo
+□ Capacitación masiva
+□ Primeros reportes
+
+**MES 7-9: EXPANSIÓN**
+□ Certificaciones ISO
+□ Reporte sostenibilidad
+□ Engagement stakeholders
+□ Mejoras procesos
+
+**MES 10-12: CONSOLIDACIÓN**
+□ Auditorías externas
+□ Benchmark competencia
+□ Comunicación resultados
+□ Planificación siguiente año
+
+### RECURSOS ADICIONALES
+
+**Contactos Clave:**
+- SMA: www.sma.gob.cl
+- SEA: www.sea.gob.cl  
+- CNE: www.cne.cl
+- INN: www.inn.cl
+
+**Consultores Especializados:**
+- EcoAnalytics: www.ecoanalytics.cl
+- Email: info@ecoanalytics.cl
+- Teléfono: +56 9 8765 4321
+
+---
+© 2024 EcoAnalytics Chile. Todos los derechos reservados.
+Descarga gratuita - Prohibida distribución comercial.
+        `;
+    }
+
+    static generateChecklistContent() {
+        return `
+# CHECKLIST NORMATIVO ESG CHILE 2024
+## Lista Verificación Cumplimiento Completa
+
+### ☑️ EVALUACIÓN AMBIENTAL - SEIA
+
+□ **Proyecto requiere EIA o DIA**
+□ **RCA vigente y en cumplimiento**
+□ **Seguimiento medidas ambientales**
+□ **Reportes semestrales SMA**
+□ **Permisos ambientales sectoriales**
+
+### ☑️ RESIDUOS LÍQUIDOS - DS 90/2000
+
+□ **Resolución sanitaria vigente**
+□ **Sistema tratamiento operativo**
+□ **Monitoreo parámetros obligatorio**
+□ **Autoreporte trimestral**
+□ **Plan contingencias operativo**
+
+### ☑️ RESIDUOS PELIGROSOS - DS 148/2003
+
+□ **Plan manejo residuos actualizado**
+□ **Manifesto transporte al día**  
+□ **Declaración anual RETC**
+□ **Almacenamiento según norma**
+□ **Empresa transporte autorizada**
+
+### ☑️ EMISIONES ATMOSFÉRICAS
+
+□ **Fuentes fijas compensadas**
+□ **Plan seguimiento emisiones**
+□ **Cumplimiento DS 609/1998**
+□ **Medición material particulado**
+□ **Reporte planes descontaminación**
+
+### ☑️ SEGURIDAD OCUPACIONAL
+
+□ **Reglamento interno vigente**
+□ **CPHS constituido y activo**
+□ **Programa prevención riesgos**
+□ **Exámenes médicos al día**
+□ **Capacitación 16.744**
+
+### ☑️ ESTÁNDARES ISO
+
+□ **ISO 14001 - Sistema gestión ambiental**
+□ **ISO 45001 - Seguridad ocupacional**  
+□ **ISO 50001 - Gestión energética**
+□ **ISO 26000 - Responsabilidad social**
+□ **ISO 37001 - Antisoborno**
+
+### ☑️ REPORTES ESG
+
+□ **Memoria sostenibilidad anual**
+□ **Reporte GRI Standards**
+□ **Inventario gases efecto invernadero**
+□ **Reporte TCFD riesgos climáticos**
+□ **Participación CDP**
+
+### SCORING CUMPLIMIENTO
+
+**85-100%:** 🟢 EXCELENTE - Líderes ESG
+**70-84%:** 🟡 BUENO - Cumplimiento sólido  
+**55-69%:** 🟠 REGULAR - Necesita mejoras
+**40-54%:** 🔴 DEFICIENTE - Riesgo alto
+**<40%:** ⚫ CRÍTICO - Acción inmediata
+
+### PRÓXIMOS PASOS
+
+1. **Completar checklist**
+2. **Identificar gaps críticos**
+3. **Priorizar acciones**
+4. **Solicitar asesoría experta**
+
+---
+Desarrollado por EcoAnalytics Chile 2024
+        `;
+    }
+
+    static generateCalculatorContent() {
+        return `
+# CALCULADORA HUELLA DE CARBONO
+## Template Excel Empresas Chile
+
+[SIMULACIÓN CONTENIDO EXCEL]
+
+HOJA 1: DATOS EMPRESA
+- Nombre empresa
+- Sector industrial  
+- Año base cálculo
+- Límites organizacionales
+
+HOJA 2: ALCANCE 1
+- Combustión fija
+- Combustión móvil
+- Emisiones proceso
+- Emisiones fugitivas
+
+HOJA 3: ALCANCE 2  
+- Electricidad consumida
+- Calor/vapor comprado
+- Factor emisión red eléctrica
+
+HOJA 4: ALCANCE 3
+- Viajes negocios
+- Desplazamiento empleados
+- Residuos generados
+- Bienes/servicios comprados
+
+HOJA 5: RESULTADOS
+- Total tCO2eq por alcance
+- Intensidad carbono
+- Benchmark sectorial
+- Metas reducción
+
+---
+Descarga desde: www.ecoanalytics.cl/calculadora
+        `;
+    }
+
+    static generateBenchmarkContent() {
+        return `
+# BENCHMARK SECTORIAL ESG CHILE 2024
+## Análisis Comparativo por Industria
+
+### MINERÍA
+**Score Promedio ESG: 72/100**
+- Líderes: Codelco (85), BHP (82), Anglo American (80)
+- Principales fortalezas: Seguridad, gestión agua
+- Áreas mejora: Biodiversidad, comunidades
+
+### ENERGÍA  
+**Score Promedio ESG: 68/100**
+- Líderes: Enel (78), Colbún (75), AES Gener (73)
+- Principales fortalezas: Renovables, eficiencia
+- Áreas mejora: Transmisión, almacenamiento
+
+### RETAIL
+**Score Promedio ESG: 65/100**
+- Líderes: Falabella (72), Cencosud (70), Ripley (68)
+- Principales fortalezas: Empleados, clientes
+- Áreas mejora: Cadena suministro, huella carbono
+
+### FORESTAL
+**Score Promedio ESG: 74/100**
+- Líderes: Arauco (82), CMPC (78), Masisa (71)
+- Principales fortalezas: Biodiversidad, certificación
+- Áreas mejora: Comunidades, agua
+
+### MANUFACTURA
+**Score Promedio ESG: 63/100**
+- Líderes: CCU (75), Embotelladora Andina (72)
+- Principales fortalezas: Eficiencia operativa
+- Áreas mejora: Economía circular, digitalización
+
+### RECOMENDACIONES POR SECTOR
+
+**MINERÍA:**
+1. Implementar tecnologías limpias
+2. Fortalecer relacionamiento comunitario
+3. Conservación biodiversidad
+
+**ENERGÍA:**
+1. Acelerar transición renovable
+2. Desarrollar storage tecnologías
+3. Grid modernization
+
+**RETAIL:**
+1. Trazabilidad cadena suministro
+2. Logística sostenible
+3. Economía circular
+
+---
+© 2024 EcoAnalytics Chile
+        `;
+    }
+
+    static generateReportContent() {
+        const company = DemoData.company;
+        const score = DemoData.overallScore;
+        
+        return `
+# REPORTE ANÁLISIS ESG DEMO
+## ${company.name}
+
+### RESUMEN EJECUTIVO
+
+**Empresa:** ${company.name}
+**Sector:** ${company.sector}
+**Fecha Análisis:** ${new Date().toLocaleDateString()}
+**Documentos Analizados:** ${company.documentsAnalyzed} páginas
+**Normativas Verificadas:** ${company.normativasChecked}
+
+### SCORE ESG GENERAL: ${score}%
+
+**Clasificación:** ${ score >= 80 ? 'EXCELENTE' : score >= 70 ? 'BUENO' : score >= 60 ? 'REGULAR' : 'DEFICIENTE'}
+**Tendencia:** Positiva (+8.5% vs período anterior)
+**Ranking Sectorial:** Top 25%
+
+### ANÁLISIS POR DIMENSIÓN
+
+**🌍 AMBIENTAL (76%)**
+✅ Fortalezas:
+- Sistema gestión ambiental implementado
+- Monitoreo continuo emisiones
+- Certificación ISO 14001 vigente
+
+⚠️ Oportunidades:
+- Mejorar gestión residuos peligrosos
+- Implementar economía circular
+- Acelerar descarbonización
+
+**👥 SOCIAL (72%)**
+✅ Fortalezas:  
+- Programa seguridad robusto
+- Certificación OHSAS 18001
+- Plan capacitación continua
+
+⚠️ Oportunidades:
+- Fortalecer diversidad e inclusión
+- Mejorar relacionamiento comunitario
+- Desarrollar cadena suministro responsable
+
+**🏛️ GOBERNANZA (86%)**
+✅ Fortalezas:
+- Estructura gobierno corporativo sólida
+- Políticas compliance vigentes
+- Gestión riesgos integral
+
+⚠️ Oportunidades:
+- Integrar sostenibilidad en estrategia
+- Fortalecer reporte ESG
+- Mejorar transparencia stakeholders
+
+### ÁREAS CRÍTICAS IDENTIFICADAS
+
+**🚨 CRÍTICO - DS 148/2003 Residuos Peligrosos**
+- Riesgo multa: $2M - $15M UTM
+- Plazo acción: 30 días
+- Solución: Actualizar declaración RETC
+
+**⚠️ ALTO - ISO 50001 Gestión Energética** 
+- Potencial ahorro: $450M CLP/año
+- ROI: 24 meses  
+- Solución: Implementar sistema gestión energética
+
+**📊 MEDIO - NCh 1333 Calidad Aguas**
+- Parámetros fuera norma: Boro, conductividad
+- Impacto: Operacional y regulatorio
+- Solución: Sistema tratamiento avanzado
+
+### BENCHMARKING SECTORIAL
+
+Su empresa vs. Competencia:
+- Promedio sector: 65%
+- Top quartile: 85%  
+- Su posición: 78% (Bien posicionado)
+
+### PLAN DE ACCIÓN RECOMENDADO
+
+**INMEDIATO (0-3 meses) - $500K**
+□ Regularizar DS 148 residuos peligrosos
+□ Auditoría compliance integral  
+□ Capacitación equipo ESG
+
+**CORTO PLAZO (3-12 meses) - $2.5M**
+□ Implementar ISO 50001
+□ Mejorar sistema tratamiento aguas
+□ Desarrollar reporte GRI
+
+**MEDIANO PLAZO (1-2 años) - $8M**
+□ Estrategia carbono neutral
+□ Certificación B Corp
+□ Digitalización gestión ESG
+
+### RETORNO INVERSIÓN PROYECTADO
+
+**Inversión Total:** $11M USD
+**Ahorros Anuales:** $6.8M USD  
+**Payback:** 19 meses
+**NPV (5 años):** $28M USD
+**Reducción Riesgos:** 85%
+
+### CONCLUSIONES Y RECOMENDACIONES
+
+${company.name} presenta un desempeño ESG sólido con oportunidades significativas de mejora. La empresa está bien posicionada para liderar en sustentabilidad sectorial.
+
+**Prioridades estratégicas:**
+1. Resolver compliance crítico DS 148
+2. Implementar gestión energética ISO 50001  
+3. Desarrollar estrategia descarbonización
+4. Fortalecer reporte ESG internacional
+
+### PRÓXIMOS PASOS
+
+1. **Reunión directorio** - Presentar hallazgos
+2. **Plan implementación** - Definir cronograma  
+3. **Asignación recursos** - Aprobar presupuesto
+4. **Seguimiento mensual** - Dashboard ejecutivo
+
+---
+
+**Elaborado por:** EcoAnalytics Chile
+**Contacto:** info@ecoanalytics.cl | +56 9 8765 4321
+**Fecha:** ${new Date().toLocaleDateString()}
+
+© 2024 EcoAnalytics Chile. Documento confidencial.
+        `;
+    }
+
+    static createDownload(type) {
+        const download = this.downloads[type];
+        if (!download) return;
+
+        const blob = new Blob([download.content], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = download.filename;
+        a.style.display = 'none';
+        
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        // Mostrar notificación
+        NotificationManager.show(`✅ ${download.name} descargado exitosamente`, 'success');
+        
+        // Analytics (simulated)
+        console.log(`📊 Download tracked: ${type} - ${download.name}`);
+    }
+}
 
 /* ===== GESTIÓN DE ARCHIVOS Y ANÁLISIS ===== */
 class AnalysisEngine {
@@ -856,7 +1378,7 @@ class UIManager {
         
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const filter = button.getAttribute('data-filter') || 'all';
+                const filter = button.getAttribute('data-filter') || button.getAttribute('data-priority') || 'all';
                 
                 // Actualizar estado
                 State.setState({ currentFilter: filter });
@@ -872,12 +1394,34 @@ class UIManager {
         allButtons.forEach(btn => btn.classList.remove('active'));
         activeButton.classList.add('active');
         
-        // Filtrar cards
+        // Filtrar cards de normativas
         const normativaCards = document.querySelectorAll('.norma-card');
         
         normativaCards.forEach((card, index) => {
             const cardCategories = card.getAttribute('data-category') || '';
             const shouldShow = filter === 'all' || cardCategories.includes(filter);
+            
+            if (shouldShow) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Filtrar cards de issues
+        const issueCards = document.querySelectorAll('.issue-card');
+        
+        issueCards.forEach((card, index) => {
+            const cardPriority = card.getAttribute('data-priority') || '';
+            const shouldShow = filter === 'all' || cardPriority === filter;
             
             if (shouldShow) {
                 card.style.display = 'block';
@@ -1134,7 +1678,7 @@ class UIManager {
         });
         
         const animatableElements = document.querySelectorAll(
-            '.norma-card, .issue-card, .action-card, .stat, .metric-card'
+            '.norma-card, .issue-card, .action-card, .stat, .metric-card, .plan-card, .service-card'
         );
         
         animatableElements.forEach(element => {
@@ -1154,12 +1698,12 @@ class UIManager {
             }
             
             // Contact buttons
-            if (e.target.matches('#contact-btn, #schedule-demo-btn')) {
+            if (e.target.matches('#contact-btn, #schedule-demo-btn, #contact-enterprise')) {
                 this.openModal('contact');
             }
             
             // Start analysis button
-            if (e.target.matches('#start-analysis-btn, #start-free-btn')) {
+            if (e.target.matches('#start-analysis-btn, #start-free-btn, #start-free-trial')) {
                 const uploadZone = document.getElementById('upload-zone');
                 if (uploadZone) {
                     Utils.smoothScroll(uploadZone);
@@ -1167,6 +1711,14 @@ class UIManager {
                         document.getElementById('file-input').click();
                     }, 500);
                 }
+            }
+
+            // Plan buttons
+            if (e.target.matches('#start-professional')) {
+                NotificationManager.show('🚀 Redirigiendo a checkout Plan Profesional...', 'info');
+                setTimeout(() => {
+                    this.openModal('contact');
+                }, 1500);
             }
             
             // Refresh analysis
@@ -1182,6 +1734,33 @@ class UIManager {
             // Show more buttons
             if (e.target.matches('#show-all-scores, #show-all-issues, #view-all-norms')) {
                 this.handleShowMore(e.target);
+            }
+
+            // Download buttons
+            if (e.target.matches('#download-checklist-main')) {
+                DownloadManager.createDownload('checklist');
+            }
+
+            // Service buttons
+            if (e.target.matches('.service-card .btn')) {
+                NotificationManager.show('📞 Conectando con consultor especializado...', 'info');
+                setTimeout(() => {
+                    this.openModal('contact');
+                }, 1000);
+            }
+
+            // Action buttons from dashboard
+            if (e.target.matches('.action-btn')) {
+                const text = e.target.textContent;
+                if (text.includes('críticos')) {
+                    NotificationManager.show('⚠️ Mostrando plan de acción para áreas críticas...', 'warning');
+                } else if (text.includes('mejoras')) {
+                    NotificationManager.show('📋 Generando cronograma de mejoras...', 'info');
+                } else if (text.includes('reporte')) {
+                    this.exportReport();
+                } else if (text.includes('asesoría')) {
+                    this.openModal('contact');
+                }
             }
         });
         
@@ -1307,16 +1886,8 @@ class UIManager {
     exportReport() {
         NotificationManager.show('📄 Generando reporte PDF...', 'info');
         
-        // Simular generación de reporte
         setTimeout(() => {
-            NotificationManager.show('✅ Reporte exportado. Revisa tu carpeta de descargas.', 'success');
-            
-            // Simular descarga
-            const link = document.createElement('a');
-            link.href = '#';
-            link.download = 'reporte-cumplimiento-esg.pdf';
-            link.textContent = 'Descargar Reporte';
-            // En implementación real, aquí se generaría el PDF
+            DownloadManager.createDownload('report');
         }, 2000);
     }
 
@@ -1372,6 +1943,9 @@ class App {
             // Inicializar datos demo
             this.initializeDemoData();
             
+            // Configurar descargas
+            this.setupDownloads();
+            
             // Marcar como inicializado
             this.initialized = true;
             
@@ -1387,6 +1961,26 @@ class App {
             console.error('❌ Error inicializando la aplicación:', error);
             NotificationManager.show('Error al inicializar la aplicación. Por favor recarga la página.', 'error');
         }
+    }
+
+    setupDownloads() {
+        // Event listeners para descargas del footer
+        const downloadLinks = {
+            'download-guide': 'guide',
+            'download-checklist': 'checklist', 
+            'download-calculator': 'calculator',
+            'download-benchmark': 'benchmark'
+        };
+
+        Object.keys(downloadLinks).forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    DownloadManager.createDownload(downloadLinks[id]);
+                });
+            }
+        });
     }
 
     setupGlobalEventHandlers() {
@@ -1495,6 +2089,7 @@ window.EcoAnalytics = {
     Utils,
     NotificationManager,
     AnalysisEngine: AnalysisEngineInstance,
+    DownloadManager,
     Config: ECOANALYTICS_CONFIG,
     Version: ECOANALYTICS_CONFIG.version
 };
